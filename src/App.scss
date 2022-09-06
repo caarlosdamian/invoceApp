@@ -11,6 +11,7 @@
 .main__container {
   background: $gohts-white;
   height: 100vh;
+  transition: all .5s ease-out;
 
   &.dark {
     background: $eerie-black;
