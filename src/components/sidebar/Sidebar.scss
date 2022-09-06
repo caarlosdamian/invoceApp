@@ -1,7 +1,8 @@
 @import "../../constants/index.scss";
+@import "../../constants/mixing.scss";
 
 .sidebar__container {
-  border-radius: 0px 1.25rem 1.25rem 0px;
+  border-radius: 0 1.25rem 1.25rem 0;
   height: 100vh;
   width: 6.438rem;
   background: $charcoal;
@@ -9,6 +10,16 @@
   flex-direction: column;
   justify-content: space-between;
   transition: all 0.5s ease-out;
+
+  @include devices("tablet") {
+    height: 5rem;
+    width: 100vw;
+    flex-direction: row;
+  }
+
+  @include devices("mobile") {
+    height: 4.5rem;
+  }
 
   &.dark {
     background: $dark-blue;
@@ -18,26 +29,53 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 0px 1.25rem 1.25rem 0px;
+    border-radius: 0 1.25rem 1.25rem 0;
     background: $purple;
     width: 6.438rem;
     height: 6.438rem;
     position: relative;
     overflow: hidden;
+
+    @include devices("tablet") {
+      height: 5rem;
+      width: 5rem;
+    }
+
+    @include devices("mobile") {
+      height: 4.5rem;
+      width: 4.5rem;
+    }
     .sidebar__container--top--absolute {
       position: absolute;
       background: #9277ff;
-      border-radius: 0px 1.25rem 1.25rem 0px;
+      border-radius: 0 1.25rem 1.25rem 0;
       transform: matrix(-1, 0, 0, 1, 0, 0);
       top: 3.25rem;
       width: 6.438rem;
       height: 6.438rem;
+
+      @include devices("tablet") {
+        top: 2.5rem;
+        border-radius: 0 1.125rem 1.125rem 0;
+        width: 5rem;
+        height: 5rem;
+      }
+      @include devices("mobile") {
+        top: 2.25rem;
+        border-radius: 0 1.125rem 1.125rem 0;
+        width: 4.5rem;
+        height: 4.5rem;
+      }
     }
     .sidebar__container--top--logo {
       position: relative;
       z-index: 2;
       width: 2.5rem;
       height: 2.357rem;
+      @include devices("tablet") {
+        width: 1.938rem;
+        height: 1.813rem;
+      }
     }
   }
   .sidebar__container--bottom {
@@ -46,8 +84,13 @@
     justify-content: center;
     flex-direction: column;
     gap: 1.5rem;
-
     padding: 1.5rem 2.125rem;
+    @include devices("tablet") {
+      flex-direction: row;
+      justify-content: flex-end;
+      width: 50%;
+      gap: 0;
+    }
     .sidebar__container--bottom--top {
       .sidebar__container--bottom--theme {
         width: 1.25rem;
@@ -58,12 +101,26 @@
     .sidebar__container--line {
       border: 1px solid $independence;
       width: 6.438rem;
+
+      @include devices("tablet") {
+        width: 5rem;
+        transform: rotate(90deg);
+      }
+
+      @include devices("mobile") {
+        width: 4.5rem;
+      }
     }
     .sidebar__container--bottom--bottom {
       .sidebar__container--bottom--profile {
         width: 2.5rem;
         height: 2.5rem;
         border-radius: 50%;
+
+        @include devices("tablet") {
+          width: 2rem;
+          height: 2rem;
+        }
       }
     }
   }

@@ -1,18 +1,43 @@
 @import "./constants/index.scss";
+@import "./constants/mixing.scss";
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: "Spartan";
+  font-family: "League Spartan", sans-serif;
   font-style: normal;
+  transition: all 0.5s ease-out;
+
 }
 
 .main__container {
   background: $gohts-white;
   height: 100vh;
-  transition: all .5s ease-out;
+  transition: all 0.5s ease-out;
+  display: flex;
+  @include devices("tablet") {
+    flex-direction: column;
+  }
+  .main__content {
+    padding: 4.5rem 22.188rem 3.375rem 15.75rem;
+    @include devices("tablet") {
+      padding: 3.5rem 3rem 10.813rem;
+    }
 
+    @include devices("mobile") {
+      padding: 2rem 1.5rem 6.563rem;
+    }
+    .header {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 36px;
+      letter-spacing: -1px;
+      &.dark {
+        color: white;
+      }
+    }
+  }
   &.dark {
     background: $eerie-black;
   }

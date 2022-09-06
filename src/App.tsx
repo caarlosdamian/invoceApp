@@ -8,6 +8,9 @@ const App = () => {
   return (
     <main className={`main__container ${dark}`} data-testid="main__container">
       <Sidebar />
+      <div className="main__content">
+        <h1 className={`header ${dark}`}>Invoices</h1>
+      </div>
     </main>
   );
 };
