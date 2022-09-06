@@ -1,7 +1,18 @@
+@import "./constants/index.scss";
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: "Spartan";
   font-style: normal;
+}
+
+.main__container {
+  background: $gohts-white;
+  height: 100vh;
+
+  &.dark {
+    background: $eerie-black;
+  }
 }

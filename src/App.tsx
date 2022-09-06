@@ -1,11 +1,15 @@
-import React from 'react';
-import './App.scss';
+import React from "react";
+import { useSelector } from "react-redux";
+import "./App.scss";
 
-function App() {
+const App = () => {
+  const { dark } = useSelector((state: any) => state.theme);
   return (
-    <main className="main__container" data-testid='main__container'>
-    </main>
+    <main
+      className={`main__container ${dark}`}
+      data-testid="main__container"
+    ></main>
   );
-}
+};
 
 export default App;
