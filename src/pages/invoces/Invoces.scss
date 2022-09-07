@@ -1,0 +1,80 @@
+@import "../../constants/index.scss";
+
+.invoces__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 730px;
+  .invoces__container--top--left {
+    display: flex;
+    align-self: flex-start;
+    justify-self: start;
+    flex-direction: column;
+    gap: 0.5rem; // change spacing
+    .invoces__container--top--header {
+      font-weight: $font-weight-700;
+      font-size: $font-size-32;
+      line-height: $line-height-36;
+      letter-spacing: -1px;
+      color: $chinese-black;
+    }
+    .invoces__container--top--subtitle {
+      font-weight: $font-weight-500;
+      font-size: $font-size-12;
+      line-height: $line-height-15;
+      letter-spacing: $letter-spacing-25;
+      color: $cool-gray;
+    }
+  }
+  .invoces__container--middle {
+    margin-left: 243px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $font-size-16; // change spacing
+    .invoces__container--middle-text {
+      cursor: pointer;
+      font-weight: $font-weight-700;
+      font-size: $font-size-12;
+      line-height: $line-height-15;
+      letter-spacing: $letter-spacing-25;
+      color: $chinese-black;
+    }
+    .invoces__container--middle-img {
+      &.open {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  .invoces__container--top--right {
+    background: $purple;
+    border-radius: $line-height-24; // change spacing
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $font-size-16; // change spacing
+    width: 150px;
+    height: $padding-spaicing-48; // change spacing
+    padding: 1.063rem 0.5rem;
+    cursor: pointer;
+
+    .invoce__container--top--right--img--container {
+      background: $white;
+      width: $font-size-32; // change spacing
+      height: $font-size-32; // change spacing
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .invoces__container--top--button {
+      border: none;
+      background: none;
+      font-weight: $font-weight-700;
+      font-size: $font-size-12;
+      line-height: $line-height-15;
+      letter-spacing: $letter-spacing-25;
+      color: $white;
+    }
+  }
+}
