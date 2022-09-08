@@ -10,7 +10,7 @@
     align-self: flex-start;
     justify-self: start;
     flex-direction: column;
-    gap: 0.5rem; // change spacing
+    gap: 0.5rem; 
     .invoces__container--top--header {
       font-weight: $font-weight-700;
       font-size: $font-size-32;
@@ -37,7 +37,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: $font-size-16; // change spacing
+    gap: $spacing-16; 
     .invoces__container--middle-text {
       cursor: pointer;
       font-weight: $font-weight-700;
@@ -57,20 +57,20 @@
   }
   .invoces__container--top--right {
     background: $purple;
-    border-radius: $line-height-24; // change spacing
+    border-radius: $spacing-24; 
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: $font-size-16; // change spacing
+    gap: $spacing-16; 
     width: 150px;
-    height: $padding-spaicing-48; // change spacing
+    height: $spacing-48; 
     padding: 0.625rem;
     cursor: pointer;
 
     .invoce__container--top--right--img--container {
       background: $white;
-      width: $font-size-32; // change spacing
-      height: $font-size-32; // change spacing
+      width: $spacing-32; 
+      height: $spacing-32; 
       border-radius: 50%;
       display: flex;
       align-items: center;
