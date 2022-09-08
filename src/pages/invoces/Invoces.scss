@@ -66,6 +66,9 @@
     height: $spacing-48; 
     padding: 0.625rem;
     cursor: pointer;
+    &:hover{
+      background: $light-purple;
+    }
 
     .invoce__container--top--right--img--container {
       background: $white;

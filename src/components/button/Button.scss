@@ -1,0 +1,100 @@
+@import "../../constants/index.scss";
+
+.button__container {
+  border: none;
+  background: none;
+  font-weight: $font-weight-700;
+  font-size: $font-size-12;
+  line-height: $line-height-15;
+  letter-spacing: 0.25px;
+  padding: $padding-spaicing-16 $padding-spaicing-24;
+  border-radius: $border-radius-24;
+  cursor: pointer;
+
+  &.default__purple {
+    color: $white;
+    background: $purple;
+    &:hover {
+      background: $light-purple;
+    }
+    &.small {
+      width: 128px;
+    }
+    &.medium {
+      width: 131px;
+    }
+    &.large {
+      width: 138px;
+    }
+  }
+
+  &.default__light {
+    background: $ghost-white;
+    color: $ube;
+    &:hover {
+      background: $lavander;
+    }
+    &.small {
+      width: 73px;
+    }
+    &.medium {
+      width: 91px;
+    }
+    &.large {
+      width: 96px;
+    }
+    &.dark {
+      background: $yankees-blue;
+      color: $lavander;
+      &:hover {
+        background: $white;
+      }
+    }
+  }
+  &.default__black {
+    background: $charcoal;
+    color: $cool-gray;
+    &:hover {
+      background: $chinese-black;
+    }
+    &.medium {
+      width: 133px;
+    }
+    &.dark {
+      color: $lavander;
+      &:hover {
+        background: $dark-blue;
+      }
+    }
+  }
+
+  &.default__red {
+    background: $fire-opal;
+    color: $white;
+    &:hover {
+      background: $american-pink;
+    }
+    &.medium {
+      width: 89px;
+    }
+  }
+  &.default__icon {
+    background: $ghost-white;
+    color: $ube;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-6;
+    svg {
+      width: $spacing-12;
+      height: $spacing-12;
+    }
+    &:hover {
+      background: #dfe3fa;
+    }
+    &.medium {
+      width: 504px;
+    }
+  }
+}
