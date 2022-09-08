@@ -17,6 +17,9 @@
       line-height: $line-height-36;
       letter-spacing: -1px;
       color: $chinese-black;
+      &.dark {
+        color: $white;
+      }
     }
     .invoces__container--top--subtitle {
       font-weight: $font-weight-500;
@@ -24,6 +27,9 @@
       line-height: $line-height-15;
       letter-spacing: $letter-spacing-25;
       color: $cool-gray;
+      &.dark {
+        color: $lavander;
+      }
     }
   }
   .invoces__container--middle {
@@ -39,6 +45,9 @@
       line-height: $line-height-15;
       letter-spacing: $letter-spacing-25;
       color: $chinese-black;
+      &.dark {
+        color: $white;
+      }
     }
     .invoces__container--middle-img {
       &.open {
@@ -51,11 +60,11 @@
     border-radius: $line-height-24; // change spacing
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     gap: $font-size-16; // change spacing
     width: 150px;
     height: $padding-spaicing-48; // change spacing
-    padding: 1.063rem 0.5rem;
+    padding: 0.625rem;
     cursor: pointer;
 
     .invoce__container--top--right--img--container {
