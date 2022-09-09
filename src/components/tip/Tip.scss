@@ -1,0 +1,54 @@
+@import "../../constants/index.scss";
+
+.tip__container {
+  padding: 12px 30px;
+  mix-blend-mode: normal;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  max-width: 104px;
+  max-height: 40px;
+  &.pending {
+    background: $orange-light;
+    color: $orange;
+  }
+  &.paid {
+    background: $light-green;
+    color: $green;
+  }
+  &.draft {
+    background: $charcoal-light;
+    color: $charcoal;
+    &.dark {
+      background: $lavander-light;
+      color: $lavander;
+    }
+  }
+  .tip__label {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: -0.25px;
+  }
+  .tip__circle {
+    position: relative;
+    z-index: 5;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    &.pending {
+      background: $orange;
+    }
+    &.paid {
+      background: $green;
+    }
+    &.draft {
+      background: $charcoal;
+      &.dark {
+        background: $lavander;
+      }
+    }
+  }
+}
