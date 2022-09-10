@@ -16,3 +16,4 @@ export const Tip = ({ label, type }: TipProps) => {
     </div>
   );
 };
+
