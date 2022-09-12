@@ -1,92 +1,102 @@
 @import "../../constants/index.scss";
 
-.invoces__container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 730px;
-  .invoces__container--top--left {
-    display: flex;
-    align-self: flex-start;
-    justify-self: start;
-    flex-direction: column;
-    gap: 0.5rem; 
-    .invoces__container--top--header {
-      font-weight: $font-weight-700;
-      font-size: $font-size-32;
-      line-height: $line-height-36;
-      letter-spacing: -1px;
-      color: $chinese-black;
-      &.dark {
-        color: $white;
-      }
-    }
-    .invoces__container--top--subtitle {
-      font-weight: $font-weight-500;
-      font-size: $font-size-12;
-      line-height: $line-height-15;
-      letter-spacing: $letter-spacing-25;
-      color: $cool-gray;
-      &.dark {
-        color: $lavander;
-      }
-    }
-  }
-  .invoces__container--middle {
-    margin-left: 243px;
+.invoces {
+  .invoces__container-row {
+    padding-top: 65px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: $spacing-16; 
-    .invoces__container--middle-text {
-      cursor: pointer;
-      font-weight: $font-weight-700;
-      font-size: $font-size-12;
-      line-height: $line-height-15;
-      letter-spacing: $letter-spacing-25;
-      color: $chinese-black;
-      &.dark {
-        color: $white;
-      }
-    }
-    .invoces__container--middle-img {
-      &.open {
-        transform: rotate(180deg);
-      }
-    }
+    flex-direction: column;
+    gap: 16px;
   }
-  .invoces__container--top--right {
-    background: $purple;
-    border-radius: $spacing-24; 
+  .invoces__container {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    gap: $spacing-16; 
-    width: 150px;
-    height: $spacing-48; 
-    padding: 0.625rem;
-    cursor: pointer;
-    &:hover{
-      background: $light-purple;
+    justify-content: space-between;
+    width: 730px;
+    .invoces__container--top--left {
+      display: flex;
+      align-self: flex-start;
+      justify-self: start;
+      flex-direction: column;
+      gap: 0.5rem;
+      .invoces__container--top--header {
+        font-weight: $font-weight-700;
+        font-size: $font-size-32;
+        line-height: $line-height-36;
+        letter-spacing: -1px;
+        color: $chinese-black;
+        &.dark {
+          color: $white;
+        }
+      }
+      .invoces__container--top--subtitle {
+        font-weight: $font-weight-500;
+        font-size: $font-size-12;
+        line-height: $line-height-15;
+        letter-spacing: $letter-spacing-25;
+        color: $cool-gray;
+        &.dark {
+          color: $lavander;
+        }
+      }
     }
-
-    .invoce__container--top--right--img--container {
-      background: $white;
-      width: $spacing-32; 
-      height: $spacing-32; 
-      border-radius: 50%;
+    .invoces__container--middle {
+      margin-left: 243px;
       display: flex;
       align-items: center;
       justify-content: center;
+      gap: $spacing-16;
+      .invoces__container--middle-text {
+        cursor: pointer;
+        font-weight: $font-weight-700;
+        font-size: $font-size-12;
+        line-height: $line-height-15;
+        letter-spacing: $letter-spacing-25;
+        color: $chinese-black;
+        &.dark {
+          color: $white;
+        }
+      }
+      .invoces__container--middle-img {
+        &.open {
+          transform: rotate(180deg);
+        }
+      }
     }
-    .invoces__container--top--button {
-      border: none;
-      background: none;
-      font-weight: $font-weight-700;
-      font-size: $font-size-12;
-      line-height: $line-height-15;
-      letter-spacing: $letter-spacing-25;
-      color: $white;
+    .invoces__container--top--right {
+      background: $purple;
+      border-radius: $spacing-24;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: $spacing-16;
+      width: 150px;
+      height: $spacing-48;
+      padding: 0.625rem;
+      cursor: pointer;
+      &:hover {
+        background: $light-purple;
+      }
+
+      .invoce__container--top--right--img--container {
+        background: $white;
+        width: $spacing-32;
+        height: $spacing-32;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .invoces__container--top--button {
+        border: none;
+        background: none;
+        font-weight: $font-weight-700;
+        font-size: $font-size-12;
+        line-height: $line-height-15;
+        letter-spacing: $letter-spacing-25;
+        color: $white;
+      }
     }
   }
 }
