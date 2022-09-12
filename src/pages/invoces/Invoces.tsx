@@ -4,15 +4,18 @@ import { useSelector } from "react-redux";
 import arrow_down from "../../assets/icon-arrow-down.svg";
 import plus from "../../assets/icon-plus.svg";
 import { Row } from "../../components/row/Row";
-import invoces from '../../utils/data.json'
+import { useWindowSize } from "../../hooks/useWindowSize";
 import { RowInfo } from "../../interfaces";
+import { selectPostsByUser } from "../../redux/slices/InvoceSlice";
 
 import "./Invoces.scss";
 
 export const Invoces = () => {
   const [open, setOpen] = useState(false);
-  const { dark } = useSelector((state: any) => state.theme);
-
+  const { width } = useWindowSize();
+  const { theme, invoice } = useSelector((state: any) => state);
+  const { dark } = theme;
+const invoceLength = selectPostsByUser(invoice);
   return (
     <div className="invoces">
       <div className="invoces__container">
@@ -21,7 +24,7 @@ export const Invoces = () => {
             Invoices
           </h1>
           <span className={`invoces__container--top--subtitle ${dark}`}>
-            There are 4 pending invoices
+            {width <= 430 ? `${invoceLength} Invoices` : `There are ${invoceLength} pending invoices`}
           </span>
         </div>
         <div className="invoces__container--middle">
@@ -29,7 +32,7 @@ export const Invoces = () => {
             className={`invoces__container--middle-text ${dark}`}
             onClick={() => setOpen(!open)}
           >
-            Filter by status
+            {width <= 430 ? "Filter" : "Filter by status"}
           </span>
           <img
             src={arrow_down}
@@ -46,12 +49,14 @@ export const Invoces = () => {
             />
           </div>
           <button className="invoces__container--top--button">
-            New Invoice
+            {width <= 430 ? "New" : "New Invoice"}
           </button>
         </div>
       </div>
       <div className="invoces__container-row">
-        {invoces.map((invoce:RowInfo)=>(<Row {...invoce}/>))}
+        {invoice.map((invoce: RowInfo) => (
+          <Row key={invoce.id} {...invoce} />
+        ))}
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 @import "../../constants/index.scss";
+@import "../../constants/mixing.scss";
 
 .row__container {
   background: $white;
@@ -11,15 +12,39 @@
   justify-content: space-between;
   align-items: center;
   gap: $spacing-43;
+  transition: all 0.5s ease-out;
+  &.dark {
+    background-color: $dark-blue;
+  }
+  @include devices("tablet") {
+    padding: $spacing-16 $spacing-24;
+    max-width: 672px;
+    gap: $spacing-24;
+  }
+
+  @include devices("mobile") {
+    display: grid;
+    max-width: 327px;
+    height: 134px;
+    max-height: 134px;
+    justify-content: center;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-8;
+    align-items: flex-start;
+    padding: $spacing-24;
+  }
 
   .row__container-id {
     font-weight: $font-weight-700;
     font-size: $font-size-16;
     line-height: $line-height-15;
     letter-spacing: $letter-spacing-25;
-    color: #0c0e16;
+    color: $chinese-black;
     display: flex;
     gap: 1px;
+    &.dark {
+      color: $white;
+    }
     .row__id-strong {
       font-weight: $font-weight-700;
       font-size: $font-size-16;
@@ -35,6 +60,13 @@
     line-height: $line-height-15;
     letter-spacing: $letter-spacing-25;
     color: $ube;
+    &.dark {
+      color: $lavander;
+    }
+    @include devices("mobile") {
+      text-align: left;
+      align-self: flex-end;
+    }
   }
   .row__container-name {
     font-weight: $font-weight-400;
@@ -42,6 +74,15 @@
     line-height: $line-height-15;
     letter-spacing: $letter-spacing-25;
     color: $ube-light;
+    &.dark {
+      color: $white;
+    }
+    @include devices("mobile") {
+      grid-column: 2/3;
+      grid-row: 1/2;
+      align-self: flex-end;
+      text-align: center;
+    }
   }
   .row__container-amount {
     font-weight: $font-weight-700;
@@ -49,7 +90,15 @@
     line-height: $line-height-24;
     text-align: right;
     letter-spacing: $letter-spacing-8;
-    color: #0c0e16;
+    color: $chinese-black;
+    text-align: right;
+
+    &.dark {
+      color: $white;
+    }
+    @include devices("mobile") {
+      text-align: left;
+    }
   }
 
   .arrow__container {
@@ -57,8 +106,16 @@
     align-items: center;
     justify-content: center;
     gap: $line-height-20;
+    align-self: center;
+    @include devices("mobile") {
+      grid-column: 2/3;
+      grid-row: 2/4;
+    }
     .arrow-left {
       transform: rotate(270deg);
+      @include devices("mobile") {
+        display: none;
+      }
     }
   }
 }

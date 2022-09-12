@@ -6,9 +6,11 @@ import { Tip } from "../tip/Tip";
 import arrow_down from "../../assets/icon-arrow-down.svg";
 import { RowInfo } from "../../interfaces";
 import "./Row.scss";
+import { useSelector } from "react-redux";
 
 export const Row = (props: RowInfo) => {
   const { id, clientName, status, paymentDue, total } = props;
+  const { dark } = useSelector((state: any) => state.theme);
 
   const GBPFormatter = useMemo(
     () =>
@@ -36,13 +38,13 @@ export const Row = (props: RowInfo) => {
   }, [paymentDue]);
 
   return (
-    <div className="row__container">
-      <span className="row__container-id">
+    <div className={`row__container ${dark}`}>
+      <span className={`row__container-id ${dark}`}>
         <strong className="row__id-strong">#</strong> {id}
       </span>
-      <span className="row__container-date">Due {dueDate}</span>
-      <span className="row__container-name">{clientName}</span>
-      <span className="row__container-amount">
+      <span className={`row__container-date ${dark}`}>Due {dueDate}</span>
+      <span className={`row__container-name ${dark}`}>{clientName}</span>
+      <span className={`row__container-amount ${dark}`}>
         £ {GBPFormatter.format(total)}
       </span>
       <div className="arrow__container">

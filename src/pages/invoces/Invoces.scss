@@ -1,4 +1,5 @@
 @import "../../constants/index.scss";
+@import "../../constants/mixing.scss";
 
 .invoces {
   .invoces__container-row {
@@ -7,19 +8,31 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 16px;
+    gap: $spacing-16;
+    @include devices("mobile") {
+      padding-top: $spacing-32;
+    }
   }
   .invoces__container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 730px;
+    @include devices("tablet") {
+      max-width: 672px;
+    }
+    @include devices("mobile") {
+      max-width: 327px;
+    }
     .invoces__container--top--left {
       display: flex;
       align-self: flex-start;
       justify-self: start;
       flex-direction: column;
       gap: 0.5rem;
+      @include devices("mobile") {
+        gap: $spacing-4;
+      }
       .invoces__container--top--header {
         font-weight: $font-weight-700;
         font-size: $font-size-32;
@@ -28,6 +41,11 @@
         color: $chinese-black;
         &.dark {
           color: $white;
+        }
+        @include devices("mobile") {
+          font-size: $font-size-20;
+          line-height: $line-height-22;
+          letter-spacing: $letter-spacing-625;
         }
       }
       .invoces__container--top--subtitle {
@@ -47,6 +65,10 @@
       align-items: center;
       justify-content: center;
       gap: $spacing-16;
+
+      @include devices("mobile") {
+        margin-left: 81px;
+      }
       .invoces__container--middle-text {
         cursor: pointer;
         font-weight: $font-weight-700;
@@ -77,6 +99,10 @@
       cursor: pointer;
       &:hover {
         background: $light-purple;
+      }
+      @include devices("mobile") {
+        margin-left: $spacing-16;
+        justify-self: flex-end;
       }
 
       .invoce__container--top--right--img--container {
