@@ -1,10 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
+
 import "./Tip.scss";
 
 interface TipProps {
-  label: "Pending" | "Paid" | "Draft";
-  type: "pending" | "paid" | "draft";
+  label: "Pending" | "Paid" | "Draft" | string;
+  type: "pending" | "paid" | "draft" | string;
 }
 export const Tip = ({ label, type }: TipProps) => {
   const { dark } = useSelector((state: any) => state.theme);
@@ -16,4 +17,3 @@ export const Tip = ({ label, type }: TipProps) => {
     </div>
   );
 };
-
