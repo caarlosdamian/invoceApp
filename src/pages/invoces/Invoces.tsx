@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 import arrow_down from "../../assets/icon-arrow-down.svg";
 import plus from "../../assets/icon-plus.svg";
-import { Row } from "../../components/row/Row";
+import { MiniBox, Row } from "../../components";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import { RowInfo } from "../../interfaces";
 import { selectPostsByUser } from "../../redux/slices/InvoceSlice";
@@ -15,16 +15,19 @@ export const Invoces = () => {
   const { width } = useWindowSize();
   const { theme, invoice } = useSelector((state: any) => state);
   const { dark } = theme;
-const invoceLength = selectPostsByUser(invoice);
+  const invoceLength = selectPostsByUser(invoice);
   return (
     <div className="invoces">
+      <MiniBox />
       <div className="invoces__container">
         <div className="invoces__container--top--left">
           <h1 className={`invoces__container--top--header ${dark}`}>
             Invoices
           </h1>
           <span className={`invoces__container--top--subtitle ${dark}`}>
-            {width <= 430 ? `${invoceLength} Invoices` : `There are ${invoceLength} pending invoices`}
+            {width <= 430
+              ? `${invoceLength} Invoices`
+              : `There are ${invoceLength} pending invoices`}
           </span>
         </div>
         <div className="invoces__container--middle">
