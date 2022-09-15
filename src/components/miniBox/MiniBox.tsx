@@ -1,17 +1,22 @@
-import React, { useCallback } from "react";
 import { Checkbox } from "../checkbox/Checkbox";
 import "./MiniBox.scss";
 
 export const MiniBox = () => {
-  const handleChanges = useCallback((value: any) => {
-    console.log(value);
-  }, []);
+  const filters = [
+    { value: "paid", label: "Paid" },
+    { value: "pending", label: "Pending" },
+    { value: "draft", label: "Draft" },
+  ];
 
   return (
     <div className="mini-box__container">
-      <Checkbox label="Draft" value="draft" onlClick={handleChanges} />
-      <Checkbox label="Pending" value="pending" onlClick={handleChanges} />
-      <Checkbox label="Paid" value="paid" onlClick={handleChanges} />
+      {filters.map((filter) => (
+        <Checkbox
+          key={filter.value}
+          label={filter.label}
+          value={filter.value}
+        />
+      ))}
     </div>
   );
 };

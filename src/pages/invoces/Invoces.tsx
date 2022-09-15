@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 
 import arrow_down from "../../assets/icon-arrow-down.svg";
@@ -14,8 +14,23 @@ export const Invoces = () => {
   const [open, setOpen] = useState(false);
   const { width } = useWindowSize();
   const { theme, invoice } = useSelector((state: any) => state);
+  const { invoces, selectedFilter } = invoice;
   const { dark } = theme;
-  const invoceLength = selectPostsByUser(invoice);
+  const invoceLength = selectPostsByUser(invoces);
+
+  const filterInvoces = useMemo(
+    () =>
+      selectedFilter.length !== 0
+        ? invoice.invoces.filter(function (x: any) {
+            return selectedFilter?.reduce(function (y: any, z: any) {
+              return x.status === y || x.status === z || y === true;
+            }, "");
+          })
+        : invoces,
+
+    [selectedFilter, invoces]
+  );
+
   return (
     <div className="invoces">
       <MiniBox />
@@ -57,7 +72,7 @@ export const Invoces = () => {
         </div>
       </div>
       <div className="invoces__container-row">
-        {invoice.map((invoce: RowInfo) => (
+        {filterInvoces?.map((invoce: RowInfo) => (
           <Row key={invoce.id} {...invoce} />
         ))}
       </div>
