@@ -5,10 +5,12 @@ import invoces from "../../utils/data.json";
 interface InvoiceState {
   invoces: any;
   selectedFilter: string[];
+  showFilter: boolean;
 }
 const initialState: InvoiceState = {
   invoces,
   selectedFilter: [],
+  showFilter: false,
 };
 export const invoceSlice = createSlice({
   name: "invoice",
@@ -27,11 +29,14 @@ export const invoceSlice = createSlice({
         state.selectedFilter.splice(index, 1);
       }
     },
+    showFilterToggle: (state) => {
+      state.showFilter = !state.showFilter;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { filterByStatus, removeFilter } = invoceSlice.actions;
+export const { filterByStatus, removeFilter, showFilterToggle } = invoceSlice.actions;
 
 export default invoceSlice.reducer;
 

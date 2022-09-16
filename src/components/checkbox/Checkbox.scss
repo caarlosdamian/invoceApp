@@ -1,21 +1,24 @@
+@import "../../constants/index.scss";
+@import "../../constants/mixing.scss";
+
 .container {
   display: block;
   position: relative;
-  padding-left: 26px;
-  margin-bottom: 16px;
+  padding-left: $spacing-24;
+  margin-bottom: $spacing-16;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 15px;
+  font-weight: $font-weight-700;
+  font-size: $font-size-12;
+  line-height:$line-height-15;
   /* identical to box height, or 125% */
 
-  letter-spacing: -0.25px;
+  letter-spacing: $letter-spacing-25;
 
-  color: #1e2139;
+  color: $dark-blue;
 }
 
 /* Hide the browser's default checkbox */
@@ -32,21 +35,21 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 16px;
-  width: 16px;
-  background: #dfe3fa;
+  height: $spacing-16;
+  width: $spacing-16;
+  background: $lavander;
   border-radius: 2px;
   border: 1px solid transparent;
 }
 
 /* On mouse-over, add a grey background color */
 .container:hover input ~ .checkmark {
-  border: 1px solid #7c5dfa;
+  border: 1px solid $purple;
 }
 
 /* When the checkbox is checked, add a blue background */
 .container input:checked ~ .checkmark {
-  background-color: #7c5dfa;
+  background-color: $purple;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -63,10 +66,10 @@
 
 /* Style the checkmark/indicator */
 .container .checkmark:after {
-  left: 4px;
+  left: $spacing-4;
   top: 1px;
   width: 2.5px;
-  height: 8px;
+  height: $spacing-8;
   border: 2px solid #ffffff;
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(45deg);
