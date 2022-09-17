@@ -48,7 +48,6 @@
         line-height: $line-height-36;
         letter-spacing: -1px;
         color: $chinese-black;
-
         &.dark {
           color: $white;
         }
@@ -98,6 +97,7 @@
       }
 
       .invoces__container--middle-img {
+        cursor: pointer;
         &.open {
           transform: rotate(180deg);
         }
