@@ -37,7 +37,6 @@ export const Invoces = () => {
   return (
     <div className="invoces">
       {showFilter && <MiniBox /> }
-      
       <div className="invoces__container">
         <div className="invoces__container--top--left">
           <h1 className={`invoces__container--top--header ${dark}`}>

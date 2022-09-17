@@ -48,6 +48,7 @@
         line-height: $line-height-36;
         letter-spacing: -1px;
         color: $chinese-black;
+        cursor: pointer;
         &.dark {
           color: $white;
         }
