@@ -28,12 +28,13 @@ export const Invoces = () => {
           })
         : invoces,
 
-    [selectedFilter, invoces]
+    [selectedFilter, invoces,invoice.invoces]
   );
 
   return (
     <div className="invoces">
-      <MiniBox />
+      {open && <MiniBox /> }
+      
       <div className="invoces__container">
         <div className="invoces__container--top--left">
           <h1 className={`invoces__container--top--header ${dark}`}>
