@@ -3,6 +3,7 @@
 
 .invoces {
   position: relative;
+
   .invoces__container-row {
     padding-top: 65px;
     display: flex;
@@ -10,30 +11,37 @@
     justify-content: center;
     flex-direction: column;
     gap: $spacing-16;
+
     @include devices("mobile") {
       padding-top: $spacing-32;
     }
   }
+
   .invoces__container {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 730px;
+
     @include devices("tablet") {
       max-width: 672px;
     }
+
     @include devices("mobile") {
       max-width: 327px;
     }
+
     .invoces__container--top--left {
       display: flex;
       align-self: flex-start;
       justify-self: start;
       flex-direction: column;
       gap: 0.5rem;
+
       @include devices("mobile") {
         gap: $spacing-4;
       }
+
       .invoces__container--top--header {
         font-weight: $font-weight-700;
         font-size: $font-size-32;
@@ -44,23 +52,27 @@
         &.dark {
           color: $white;
         }
+
         @include devices("mobile") {
           font-size: $font-size-20;
           line-height: $line-height-22;
           letter-spacing: $letter-spacing-625;
         }
       }
+
       .invoces__container--top--subtitle {
         font-weight: $font-weight-500;
         font-size: $font-size-12;
         line-height: $line-height-15;
         letter-spacing: $letter-spacing-25;
         color: $cool-gray;
+
         &.dark {
           color: $lavander;
         }
       }
     }
+
     .invoces__container--middle {
       margin-left: 243px;
       display: flex;
@@ -71,6 +83,7 @@
       @include devices("mobile") {
         margin-left: 81px;
       }
+
       .invoces__container--middle-text {
         cursor: pointer;
         font-weight: $font-weight-700;
@@ -78,10 +91,12 @@
         line-height: $line-height-15;
         letter-spacing: $letter-spacing-25;
         color: $chinese-black;
+
         &.dark {
           color: $white;
         }
       }
+
       .invoces__container--middle-img {
         cursor: pointer;
         &.open {
@@ -89,6 +104,7 @@
         }
       }
     }
+
     .invoces__container--top--right {
       background: $purple;
       border-radius: $spacing-24;
@@ -100,9 +116,11 @@
       height: $spacing-48;
       padding: 0.625rem;
       cursor: pointer;
+
       &:hover {
         background: $light-purple;
       }
+
       @include devices("mobile") {
         margin-left: $spacing-16;
         justify-self: flex-end;
@@ -117,6 +135,7 @@
         align-items: center;
         justify-content: center;
       }
+
       .invoces__container--top--button {
         border: none;
         background: none;

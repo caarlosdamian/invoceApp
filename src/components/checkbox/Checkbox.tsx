@@ -8,7 +8,7 @@ interface Props {
   label: string;
 }
 export const Checkbox = ({ value, label }: Props) => {
-
+  const { dark } = useSelector((state: any) => state.theme);
   const dispatch = useDispatch();
   const { selectedFilter } = useSelector((state: any) => state.invoice);
 
@@ -25,13 +25,13 @@ export const Checkbox = ({ value, label }: Props) => {
   );
   
   return (
-    <label className="container">
+    <label className={`container ${dark}`}>
       <input
         type="checkbox"
         value={value}
         onClick={(e) => handleToggleFilter(e, value)}
       />
-      <span className="checkmark"></span>
+      <span className={`checkmark ${dark}`}></span>
       {label}
     </label>
   );

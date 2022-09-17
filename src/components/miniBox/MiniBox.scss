@@ -7,8 +7,22 @@
   height: 128px;
   background: $white;
   box-shadow: 0px 10px 20px rgba(72, 84, 159, 0.25);
-  border-radius: $spacing-8;
+  border-radius: $border-radius-8;
   left: 386px;
   top: 65px;
-  padding: $spacing-24;
+  padding: $border-radius-24;
+
+  @include devices("tablet") {
+    left: 320px;
+  }
+
+  @include devices("mobile") {
+    left: 50px;
+  }
+
+  &.dark {
+    background: $yankees-blue;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+    border-radius: $border-radius-8;
+  }
 }
