@@ -8,7 +8,6 @@
   font-family: "League Spartan", sans-serif;
   font-style: normal;
   transition: all 0.5s ease-out;
-
 }
 
 .main__container {
@@ -23,19 +22,19 @@
   .main__content {
     padding: 4.5rem 22.188rem 3.375rem 15.75rem;
     @include devices("tablet") {
-      padding: 3.5rem 3rem 10.813rem;
+      padding: 3.5rem $padding-spaicing-48 10.813rem;
     }
 
     @include devices("mobile") {
-      padding: 2rem 1.5rem;
+      padding: $padding-spaicing-32 $padding-spaicing-24;
     }
     .header {
-      font-weight: 700;
-      font-size: 32px;
-      line-height: 36px;
+      font-weight: $font-weight-700;
+      font-size:$font-size-32;
+      line-height: $line-height-36;
       letter-spacing: -1px;
       &.dark {
-        color: white;
+        color: $white;
       }
     }
   }
