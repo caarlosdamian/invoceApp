@@ -7,6 +7,7 @@ import arrow_down from "../../assets/icon-arrow-down.svg";
 import { RowInfo } from "../../interfaces";
 import "./Row.scss";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 export const Row = (props: RowInfo) => {
   const { id, clientName, status, paymentDue, total } = props;
@@ -38,7 +39,7 @@ export const Row = (props: RowInfo) => {
   }, [paymentDue]);
 
   return (
-    <div className={`row__container ${dark}`}>
+    <Link to={`/${id}`} state={{data:props}} className={`row__container ${dark}`}>
       <span className={`row__container-id ${dark}`}>
         <strong className="row__id-strong">#</strong> {id}
       </span>
@@ -51,6 +52,6 @@ export const Row = (props: RowInfo) => {
         <Tip type={status} label={capitalize(status)} />
         <img src={arrow_down} alt="arrow_down" className="arrow-left" />
       </div>
-    </div>
+    </Link>
   );
 };

@@ -2,6 +2,7 @@
 @import "../../constants/mixing.scss";
 
 .row__container {
+  text-decoration: none;
   background: $white;
   box-shadow: 0 10px 10px -10px rgba(72, 84, 159, 0.100397);
   border-radius: $spacing-8;
