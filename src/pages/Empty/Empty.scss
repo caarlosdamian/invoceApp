@@ -1,0 +1,76 @@
+@import "../../constants/index.scss";
+@import "../../constants/mixing.scss";
+
+.empty-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 141px;
+  height: 100%;
+  gap: $padding-spaicing-24;
+  @include devices("tablet") {
+    padding-top: 210px;
+  }
+
+  @include devices("mobile") {
+    padding-top: 102px;
+  }
+
+  .empty-img {
+    width: 241.34px;
+    height: 200px;
+
+    @include devices("mobile") {
+      width: 193.07px;
+      height: 160px;
+    }
+  }
+
+  .empty-title {
+    font-weight: $font-weight-700;
+    font-size: $font-size-20;
+    line-height: $line-height-22;
+    letter-spacing: $letter-spacing-625;
+    color: #0c0e16;
+    margin-top: $padding-spaicing-42;
+    @include devices("mobile") {
+      margin-top: $padding-spaicing-16;
+    }
+    &.dark {
+      color: $white;
+    }
+  }
+
+  .empty__bottom-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .title-empty__bottom-container {
+      font-weight: $font-weight-500;
+      font-size: $font-size-12;
+      line-height: $line-height-15;
+      text-align: center;
+      letter-spacing: $letter-spacing-25;
+      color: $cool-gray;
+      &.dark {
+        color: $white;
+      }
+    }
+
+    .subtitle-empty__bottom-container {
+      font-weight: $font-weight-500;
+      font-size: $font-size-12;
+      line-height: $line-height-15;
+      text-align: center;
+      letter-spacing: $letter-spacing-25;
+      color: $cool-gray;
+      &.dark {
+        color: $white;
+      }
+    }
+  }
+}

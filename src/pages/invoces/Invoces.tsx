@@ -1,8 +1,9 @@
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import arrow_down from "../../assets/icon-arrow-down.svg";
 import plus from "../../assets/icon-plus.svg";
+import { Empty } from "../Empty/Empty";
 import { MiniBox, Row } from "../../components";
 import { useWindowSize } from "../../hooks/useWindowSize";
 import { RowInfo } from "../../interfaces";
@@ -31,12 +32,12 @@ export const Invoces = () => {
           })
         : invoces,
 
-    [selectedFilter, invoces,invoice.invoces]
+    [selectedFilter, invoces, invoice.invoces]
   );
 
   return (
     <div className="invoces">
-      {showFilter && <MiniBox /> }
+      {showFilter && <MiniBox />}
       <div className="invoces__container">
         <div className="invoces__container--top--left">
           <h1 className={`invoces__container--top--header ${dark}`}>
@@ -77,11 +78,15 @@ export const Invoces = () => {
           </button>
         </div>
       </div>
-      <div className="invoces__container-row">
-        {filterInvoces?.map((invoce: RowInfo) => (
-          <Row key={invoce.id} {...invoce} />
-        ))}
-      </div>
+      {invoces.length !== 0 ? (
+        <div className="invoces__container-row">
+          {filterInvoces?.map((invoce: RowInfo) => (
+            <Row key={invoce.id} {...invoce} />
+          ))}
+        </div>
+      ) : (
+        <Empty />
+      )}
     </div>
   );
 };
