@@ -32,6 +32,28 @@
     background: $white;
     box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.100397);
     border-radius: $spacing-8;
+    display: flex;
+    justify-content: space-between;
+    padding: 24px 32px;
+    .details__container-middle-left {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      .details__container-middle-span {
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 15px;
+        letter-spacing: -0.25px;
+        color: #858bb2;
+      }
+    }
+    .details__container-middle-right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
   }
   .details__container-main {
     width: 730px;
