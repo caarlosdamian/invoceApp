@@ -27,3 +27,27 @@
   mix-blend-mode: normal;
   opacity: 0.5;
 }
+
+@mixin bold-text-subtitle {
+  font-weight: $font-weight-700;
+  font-size: $font-size-16;
+  line-height: $line-height-20;
+  letter-spacing: $letter-spacing-3125;
+  color: $chinese-black;
+}
+
+@mixin bold-text-title {
+  font-weight: $font-weight-500;
+  font-size: $font-size-12;
+  line-height: $line-height-15;
+  letter-spacing: $letter-spacing-25;
+  color: $ube;
+}
+
+@mixin flex-details-middle {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: $spacing-12;
+  width: 100%;
+}

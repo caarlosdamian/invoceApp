@@ -33,11 +33,49 @@ export const Details = () => {
       </div>
       <div className={`details__container-main ${dark}`}>
         <div className="details__container-main-grid">
-          <div className="details__top-left">Test</div>
-          <div className="details__top-right">test</div>
-          <div className="details__middle-left">test</div>
-          <div className="details__middle-middle">test</div>
-          <div className="details__middle-right">test</div>
+          <div className="details__top-left">
+            <span className="details__top-left-title">
+              <span className="strong">#</span>XM9141
+            </span>
+
+            <span className="details__top-left-subtitle">Graphic Design</span>
+          </div>
+          <div className="details__top-right">
+            <span className="details__top-right-title">
+              19 Union Terrace London E1 3EZ United Kingdom
+            </span>
+          </div>
+          <div className="details__middle-left">
+            <div className="details__middle-left-top">
+              <span className="details__middle-left-top-title">
+                Invoice Date
+              </span>
+              <span className="details__middle-left-top-subtitle">
+                21 Aug 2021
+              </span>
+            </div>
+            <div className="details__middle-left-bottom">
+              <span className="details__middle-left-bottom-title">
+                Invoice Date
+              </span>
+              <span className="details__middle-left-bottom-subtitle">
+                21 Aug 2021
+              </span>
+            </div>
+          </div>
+          <div className="details__middle-middle">
+            <span className="details__middle-middle-title">Bill To</span>
+            <span className="details__middle-middle-subtitle">Alex Grim</span>
+            <span className="details__middle-middle-text">
+              84 Church Way Bradford BD1 9PB United Kingdom
+            </span>
+          </div>
+          <div className="details__middle-right">
+            <span className="details__middle-right-title">Sent to</span>
+            <span className="details__middle-right-subtitle">
+              alexgrim@mail.com
+            </span>
+          </div>
         </div>
       </div>
     </div>
