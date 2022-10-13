@@ -8,9 +8,12 @@ import { RowInfo } from "../../interfaces";
 import "./Row.scss";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { useFormatDate } from "../../hooks/useFormatDate";
 
 export const Row = (props: RowInfo) => {
   const { id, clientName, status, paymentDue, total } = props;
+  const dueDate = useFormatDate(paymentDue);
+
   const { dark } = useSelector((state: any) => state.theme);
 
   const GBPFormatter = useMemo(
@@ -28,18 +31,12 @@ export const Row = (props: RowInfo) => {
     },
     [status]
   );
-
-  const dueDate = useMemo(() => {
-    const date = new Date(paymentDue);
-    return date.toLocaleDateString("en-US", {
-      month: "short",
-      day: "numeric",
-      year: "numeric",
-    });
-  }, [paymentDue]);
-
   return (
-    <Link to={`/${id}`} state={{data:props}} className={`row__container ${dark}`}>
+    <Link
+      to={`/${id}`}
+      state={{ data: props }}
+      className={`row__container ${dark}`}
+    >
       <span className={`row__container-id ${dark}`}>
         <strong className="row__id-strong">#</strong> {id}
       </span>
