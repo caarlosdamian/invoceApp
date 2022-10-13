@@ -49,6 +49,9 @@
         line-height: $line-height-15;
         letter-spacing: $letter-spacing-25;
         color: $ube-light;
+        &.dark {
+          color: $lavander;
+        }
       }
     }
     .details__container-middle-right {
@@ -68,6 +71,7 @@
     &.dark {
       background: $dark-blue;
     }
+
     .details__container-main-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -87,6 +91,9 @@
           line-height: $line-height-24;
           letter-spacing: $letter-spacing-8;
           color: $chinese-black;
+          &.dark {
+            color: $white;
+          }
           .strong {
             color: $cool-gray;
           }
@@ -98,6 +105,9 @@
           line-height: $line-height-15;
           letter-spacing: $letter-spacing-25;
           color: $ube;
+          &.dark {
+            color: $lavander;
+          }
         }
       }
       .details__top-right {
@@ -114,10 +124,19 @@
           text-align: right;
           letter-spacing: $letter-spacing-229167;
           color: $ube;
+          display: flex;
+          align-items: flex-end;
+          justify-content: flex-end;
+          flex-direction: column;
+
+          .details-span {
+            &.dark {
+              color: $white;
+            }
+          }
         }
       }
       .details__middle-left {
-        // background: green;
         grid-column: 1/2;
         display: flex;
         align-items: center;
@@ -126,6 +145,7 @@
         gap: $spacing-32;
         width: 100%;
         .details__middle-left-top {
+          min-width: 100px;
           @include flex-details-middle;
           .details__middle-left-top-title {
             @include bold-text-title;
@@ -151,13 +171,13 @@
         justify-content: flex-start;
         flex-direction: column;
         gap: $spacing-8;
-        width: 100%;
-        margin-left: 50px;
+        min-width: 93px;
         .details__middle-middle-title {
           @include bold-text-title;
         }
         .details__middle-middle-subtitle {
           @include bold-text-subtitle;
+          min-width: 100px;
         }
         .details__middle-middle-text {
           font-weight: $font-weight-500;
@@ -166,6 +186,15 @@
           letter-spacing: $letter-spacing-229167;
           color: $ube;
           word-break: normal;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: flex-start;
+          .details__middle-middle-span {
+            &.dark {
+              color: $white;
+            }
+          }
         }
       }
       .details__middle-right {

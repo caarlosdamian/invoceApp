@@ -4,15 +4,28 @@ import arrow_down from "../../assets/icon-arrow-down.svg";
 import { Button } from "../../components";
 import { Tip } from "../../components/tip/Tip";
 import { useCapitalize } from "../../hooks/useCapitalize";
+import { useFormatDate } from "../../hooks/useFormatDate";
 
 import "./Details.scss";
 
 export const Details = () => {
   const { state } = useLocation();
+  const {
+    paymentDue,
+    clientName,
+    id,
+    createdAt,
+    clientEmail,
+    clientAddress,
+    senderAddress,
+    description,
+  } = state.data;
   const { dark } = useSelector((state: any) => state.theme);
   const { data } = state;
   const { status } = data;
   const capitalLetter = useCapitalize(status);
+  const dueDate = useFormatDate(paymentDue);
+  const paymentDate = useFormatDate(createdAt);
 
   return (
     <div className="details__container">
@@ -22,7 +35,9 @@ export const Details = () => {
       </Link>
       <div className={`details__container-middle ${dark}`}>
         <div className="details__container-middle-left">
-          <span className="details__container-middle-span">Status</span>
+          <span className={`details__container-middle-span ${dark}`}>
+            Status
+          </span>
           <Tip type={status} label={capitalLetter} />
         </div>
         <div className="details__container-middle-right">
@@ -34,46 +49,77 @@ export const Details = () => {
       <div className={`details__container-main ${dark}`}>
         <div className="details__container-main-grid">
           <div className="details__top-left">
-            <span className="details__top-left-title">
-              <span className="strong">#</span>XM9141
+            <span className={`details__top-left-title ${dark}`}>
+              <span className="strong">#</span>
+              {id}
             </span>
 
-            <span className="details__top-left-subtitle">Graphic Design</span>
+            <span className={`details__top-left-subtitle ${dark}`}>
+              {description}
+            </span>
           </div>
           <div className="details__top-right">
-            <span className="details__top-right-title">
-              19 Union Terrace London E1 3EZ United Kingdom
+            <span className={`details__top-right-title ${dark}`}>
+              <span className={`details-span ${dark}`}>
+                {senderAddress.street}
+              </span>
+              <span className={`details-span ${dark}`}>
+                {senderAddress.city}
+              </span>
+              <span className={`details-span ${dark}`}>
+                {senderAddress.postCode}
+              </span>
+              <span className={`details-span ${dark}`}>
+                {senderAddress.country}
+              </span>
             </span>
           </div>
           <div className="details__middle-left">
             <div className="details__middle-left-top">
-              <span className="details__middle-left-top-title">
+              <span className={`details__middle-left-top-title ${dark}`}>
                 Invoice Date
               </span>
-              <span className="details__middle-left-top-subtitle">
-                21 Aug 2021
+              <span className={`details__middle-left-top-subtitle ${dark}`}>
+                {paymentDate}
               </span>
             </div>
             <div className="details__middle-left-bottom">
-              <span className="details__middle-left-bottom-title">
-                Invoice Date
+              <span className={`details__middle-left-bottom-title ${dark}`}>
+                Payment Due
               </span>
-              <span className="details__middle-left-bottom-subtitle">
-                21 Aug 2021
+              <span className={`details__middle-left-bottom-subtitle ${dark}`}>
+                {dueDate}
               </span>
             </div>
           </div>
           <div className="details__middle-middle">
-            <span className="details__middle-middle-title">Bill To</span>
-            <span className="details__middle-middle-subtitle">Alex Grim</span>
-            <span className="details__middle-middle-text">
-              84 Church Way Bradford BD1 9PB United Kingdom
+            <span className={`details__middle-middle-title ${dark}`}>
+              Bill To
             </span>
+            <span className={`details__middle-middle-subtitle ${dark}`}>
+              {clientName}
+            </span>
+            <div className={`details__middle-middle-text ${dark}`}>
+              <span className={`details__middle-middle-span ${dark}`}>
+                {clientAddress.street}
+              </span>
+              <span className={`details__middle-middle-span ${dark}`}>
+                {clientAddress.city}
+              </span>
+              <span className={`details__middle-middle-span ${dark}`}>
+                {clientAddress.postCode}
+              </span>
+              <span className={`details__middle-middle-span ${dark}`}>
+                {clientAddress.country}
+              </span>
+            </div>
           </div>
           <div className="details__middle-right">
-            <span className="details__middle-right-title">Sent to</span>
-            <span className="details__middle-right-subtitle">
-              alexgrim@mail.com
+            <span className={`details__middle-right-title ${dark}`}>
+              Sent to
+            </span>
+            <span className={`details__middle-right-subtitle ${dark}`}>
+              {clientEmail}
             </span>
           </div>
         </div>

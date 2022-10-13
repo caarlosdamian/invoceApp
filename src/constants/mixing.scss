@@ -34,6 +34,9 @@
   line-height: $line-height-20;
   letter-spacing: $letter-spacing-3125;
   color: $chinese-black;
+  &.dark {
+    color: $white;
+  }
 }
 
 @mixin bold-text-title {
@@ -42,6 +45,9 @@
   line-height: $line-height-15;
   letter-spacing: $letter-spacing-25;
   color: $ube;
+  &.dark {
+    color: $lavander;
+  }
 }
 
 @mixin flex-details-middle {
