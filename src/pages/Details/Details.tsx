@@ -5,6 +5,7 @@ import { Button } from "../../components";
 import { Tip } from "../../components/tip/Tip";
 import { useCapitalize } from "../../hooks/useCapitalize";
 import { useFormatDate } from "../../hooks/useFormatDate";
+import { useWindowSize } from "../../hooks/useWindowSize";
 
 import "./Details.scss";
 
@@ -23,10 +24,12 @@ export const Details = () => {
   const { dark } = useSelector((state: any) => state.theme);
   const { data } = state;
   const { status } = data;
+  const { width } = useWindowSize();
   const capitalLetter = useCapitalize(status);
   const dueDate = useFormatDate(paymentDue);
   const paymentDate = useFormatDate(createdAt);
 
+  console.log(width);
   return (
     <div className="details__container">
       <Link to="/" className="details__container-top">
@@ -40,11 +43,18 @@ export const Details = () => {
           </span>
           <Tip type={status} label={capitalLetter} />
         </div>
-        <div className="details__container-middle-right">
-          <Button size="medium" theme="default__light" label="Edit" />
-          <Button size="medium" theme="default__red" label="Delete" />
-          <Button size="medium" theme="default__purple" label="Mark as Paid" />
-        </div>
+
+        {width >= 600 && (
+          <div className="details__container-middle-right">
+            <Button size="medium" theme="default__light" label="Edit" />
+            <Button size="medium" theme="default__red" label="Delete" />
+            <Button
+              size="medium"
+              theme="default__purple"
+              label="Mark as Paid"
+            />
+          </div>
+        )}
       </div>
       <div className={`details__container-main ${dark}`}>
         <div className="details__container-main-grid">
@@ -124,6 +134,15 @@ export const Details = () => {
           </div>
         </div>
       </div>
+      {width <= 450 && (
+        <div className={`details__container-middle ${dark}`}>
+          <div className="details__container-middle-right">
+            <Button size="small" theme="default__light" label="Edit" />
+            <Button size="small" theme="default__red" label="Delete" />
+            <Button size="small" theme="default__purple" label="Mark as Paid" />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
