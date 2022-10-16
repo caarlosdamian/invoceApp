@@ -29,7 +29,6 @@ export const Details = () => {
   const dueDate = useFormatDate(paymentDue);
   const paymentDate = useFormatDate(createdAt);
 
-  console.log(width);
   return (
     <div className="details__container">
       <Link to="/" className="details__container-top">
@@ -133,7 +132,37 @@ export const Details = () => {
             </span>
           </div>
         </div>
+        <div className="details__table-container">
+          <div className="details__table-headers">
+            <span className={`details__table-headers-title item-name ${dark}`}>
+              Item Name
+            </span>
+            <span className={`details__table-headers-title qty ${dark}`}>
+              QTY.
+            </span>
+            <span className={`details__table-headers-title price ${dark}`}>
+              Price
+            </span>
+            <span className={`details__table-headers-title total ${dark}`}>
+              Total
+            </span>
+          </div>
+          <div className="details__table-items-container">
+            <span className={`details__table-items title ${dark}`}>
+              Banner Design
+            </span>
+            <span className={`details__table-items qty ${dark}`}>1</span>
+            <span className={`details__table-items price ${dark}`}>
+              £ 156.00
+            </span>
+            <span className={`details__table-items total ${dark}`}>
+              £ 156.00
+            </span>
+          </div>
+        </div>
+        <div className="details__table-container-total">hola</div>
       </div>
+
       {width <= 450 && (
         <div className={`details__container-middle ${dark}`}>
           <div className="details__container-middle-right">
