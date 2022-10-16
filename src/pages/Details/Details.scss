@@ -79,30 +79,30 @@
     border-radius: $spacing-8;
     padding: $padding-spaicing-48;
     .details__table-container {
-      background: #f9fafe;
-      border-radius: 8px 8px 0px 0px;
-      margin-top: 45px;
+      background: $ghost-white;
+      border-radius: $border-radius-8 $border-radius-8 0 0;
+      margin-top: $spacing-43;
       min-height: 184px;
-      padding: 32px;
+      padding: $padding-spaicing-32;
       @include devices("mobile") {
-        padding: 32px 32px 0 32px;
+        padding: $padding-spaicing-32 $padding-spaicing-32 0 $padding-spaicing-32;
         min-height: 148px;
       }
       &.dark {
-        background: #252945;
+        background: $yankees-blue;
       }
       .details__table-headers {
         gap: 90px;
         display: grid;
         grid-template-columns: repeat(5, 1fr);
-        margin-bottom: 32px;
+        margin-bottom: $spacing-32;
 
         .details__table-headers-title {
-          font-weight: 500;
+          font-weight: $font-weight-500;
           font-size: 11px;
-          line-height: 18px;
-          letter-spacing: -0.229167px;
-          color: #7e88c3;
+          line-height: $line-height-18;
+          letter-spacing: $letter-spacing-229167;
+          color: $ube;
           min-width: 50px;
           &.item-name {
             grid-column: 1/3;
@@ -119,13 +119,13 @@
         }
       }
       .details__table-items-container {
-        row-gap: 32px;
+        row-gap: $spacing-32;
         column-gap: 90px;
         display: grid;
         grid-template-columns: repeat(5, 1fr);
         @include devices("mobile") {
           grid-template-columns: repeat(2, 1fr);
-          row-gap: 24px;
+          row-gap: $spacing-24;
           column-gap: 80px;
         }
 
@@ -136,19 +136,19 @@
           flex-direction: column;
         }
         .details__table-items {
-          font-weight: 700;
-          font-size: 12px;
-          line-height: 15px;
-          letter-spacing: -0.25px;
-          color: #7e88c3;
+          font-weight: $font-weight-700;
+          font-size: $font-size-12;
+          line-height: $line-height-15;
+          letter-spacing: $letter-spacing-25;
+          color: $ube;
           min-width: 50px;
           &.dark {
-            color: #ffffff;
+            color: $white;
           }
           &.total {
             color: #0c0e16;
             &.dark {
-              color: #ffffff;
+              color: $white;
             }
           }
           &.name {
@@ -158,7 +158,7 @@
               min-width: 86px;
             }
             &.dark {
-              color: #ffffff;
+              color: $white;
             }
           }
           &.quantity {
@@ -169,29 +169,29 @@
     }
     .details__table-container-total {
       background: #373b53;
-      border-radius: 0px 0px 8px 8px;
+      border-radius: 0 0 $border-radius-8 $border-radius-8;
       min-height: 80px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 32px;
+      padding: 0 $padding-spaicing-32;
       &.dark {
         background: #0c0e16;
       }
       .details__table-total-label {
-        font-weight: 500;
-        font-size: 11px;
-        line-height: 18px;
-        letter-spacing: -0.229167px;
-        color: #ffffff;
+        font-weight: $font-weight-500;
+        font-size: $font-size-11;
+        line-height: $line-height-18;
+        letter-spacing: $letter-spacing-229167;
+        color: $white;
       }
       .details__table-total-amount {
-        font-weight: 700;
-        font-size: 24px;
-        line-height: 32px;
+        font-weight: $font-weight-700;
+        font-size: $font-size-24;
+        line-height: $line-height-32;
         text-align: right;
         letter-spacing: -0.5px;
-        color: #ffffff;
+        color: $white;
       }
     }
     @include devices("tablet") {
@@ -228,7 +228,7 @@
           grid-column: 1/2;
         }
         .details__top-left-title {
-          font-weight: 700;
+          font-weight: $font-weight-700;
           font-size: $font-size-16;
           line-height: $line-height-24;
           letter-spacing: $letter-spacing-8;
