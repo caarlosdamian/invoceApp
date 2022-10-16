@@ -20,7 +20,10 @@ export const Details = () => {
     clientAddress,
     senderAddress,
     description,
+    items,
+    total,
   } = state.data;
+  console.log(state.data);
   const { dark } = useSelector((state: any) => state.theme);
   const { data } = state;
   const { status } = data;
@@ -28,7 +31,8 @@ export const Details = () => {
   const capitalLetter = useCapitalize(status);
   const dueDate = useFormatDate(paymentDue);
   const paymentDate = useFormatDate(createdAt);
-
+  const itemKeys = ["name", "quantity", "price", "total"];
+  console.log(itemKeys[0]);
   return (
     <div className="details__container">
       <Link to="/" className="details__container-top">
@@ -148,19 +152,30 @@ export const Details = () => {
             </span>
           </div>
           <div className="details__table-items-container">
-            <span className={`details__table-items title ${dark}`}>
-              Banner Design
-            </span>
-            <span className={`details__table-items qty ${dark}`}>1</span>
-            <span className={`details__table-items price ${dark}`}>
-              £ 156.00
-            </span>
-            <span className={`details__table-items total ${dark}`}>
-              £ 156.00
-            </span>
+            {itemKeys.length !== 0 &&
+              items.length !== 0 &&
+              items?.map((item: any) => (
+                <>
+                  <span className={`details__table-items name ${dark}`}>
+                    {item.name}
+                  </span>
+                  <span className={`details__table-items quantity ${dark}`}>
+                    {item.quantity}
+                  </span>
+                  <span className={`details__table-items price ${dark}`}>
+                    {`£ ${item.price}`}
+                  </span>
+                  <span className={`details__table-items total ${dark}`}>
+                    {`£ ${item.total}`}
+                  </span>
+                </>
+              ))}
           </div>
         </div>
-        <div className="details__table-container-total">hola</div>
+        <div className="details__table-container-total">
+          <span className="details__table-total-label">Amount Due</span>
+          <span className="details__table-total-amount"> {`£ ${total}`}</span>
+        </div>
       </div>
 
       {width <= 450 && (

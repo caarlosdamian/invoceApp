@@ -88,49 +88,49 @@
         gap: 90px;
         display: grid;
         grid-template-columns: repeat(5, 1fr);
+        margin-bottom: 32px;
         .details__table-headers-title {
           font-weight: 500;
           font-size: 11px;
           line-height: 18px;
           letter-spacing: -0.229167px;
           color: #7e88c3;
+          min-width: 50px;
           &.item-name {
             grid-column: 1/3;
           }
           &.total {
-            display: flex;
-            justify-content: center;
-            align-self: flex-end;
+            text-align: right;
           }
           &.price {
             text-align: right;
           }
+          &.qty {
+            text-align: center;
+          }
         }
       }
       .details__table-items-container {
-        gap: 90px;
+        row-gap: 32px;
+        column-gap: 90px;
         display: grid;
         grid-template-columns: repeat(5, 1fr);
-        margin-top: 32px;
         .details__table-items {
           font-weight: 700;
           font-size: 12px;
           line-height: 15px;
           letter-spacing: -0.25px;
           color: #7e88c3;
-          min-width: 45px;
+          min-width: 50px;
           &.total {
             color: #0c0e16;
           }
-          &.title {
+          &.name {
             color: #0c0e16;
             grid-column: 1/3;
           }
-          &.qty {
+          &.quantity {
             text-align: center;
-            // align-self:center;
-            // display: flex;
-            // justify-content: center;
           }
         }
       }
@@ -139,6 +139,25 @@
       background: #373b53;
       border-radius: 0px 0px 8px 8px;
       min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      .details__table-total-label {
+        font-weight: 500;
+        font-size: 11px;
+        line-height: 18px;
+        letter-spacing: -0.229167px;
+        color: #ffffff;
+      }
+      .details__table-total-amount {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 32px;
+        text-align: right;
+        letter-spacing: -0.5px;
+        color: #ffffff;
+      }
     }
     @include devices("tablet") {
       padding: $padding-spaicing-32;
