@@ -1,11 +1,8 @@
 import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
+import { Button, Table, Tip } from "../../components";
+import { useCapitalize, useFormatDate, useWindowSize } from "../../hooks/index";
 import arrow_down from "../../assets/icon-arrow-down.svg";
-import { Button } from "../../components";
-import { Tip } from "../../components/tip/Tip";
-import { useCapitalize } from "../../hooks/useCapitalize";
-import { useFormatDate } from "../../hooks/useFormatDate";
-import { useWindowSize } from "../../hooks/useWindowSize";
 
 import "./Details.scss";
 
@@ -30,8 +27,7 @@ export const Details = () => {
   const capitalLetter = useCapitalize(status);
   const dueDate = useFormatDate(paymentDue);
   const paymentDate = useFormatDate(createdAt);
-  const itemKeys = ["name", "quantity", "price", "total"];
-  console.log(width);
+
   return (
     <div className="details__container">
       <Link to="/" className="details__container-top">
@@ -135,62 +131,7 @@ export const Details = () => {
             </span>
           </div>
         </div>
-        <div className={`details__table-container ${dark}`}>
-          {width >= 600 && (
-            <div className="details__table-headers">
-              <span
-                className={`details__table-headers-title item-name ${dark}`}
-              >
-                Item Name
-              </span>
-              <span className={`details__table-headers-title qty ${dark}`}>
-                QTY.
-              </span>
-              <span className={`details__table-headers-title price ${dark}`}>
-                Price
-              </span>
-              <span className={`details__table-headers-title total ${dark}`}>
-                Total
-              </span>
-            </div>
-          )}
-          <div className="details__table-items-container">
-            {itemKeys.length !== 0 &&
-              items.length !== 0 &&
-              items?.map((item: any) =>
-                width <= 600 ? (
-                  <>
-                    <div className="details__table-items-mobile">
-                      <span className={`details__table-items name ${dark}`}>
-                        {item.name}
-                      </span>
-                      <span className={`details__table-items quantity ${dark}`}>
-                        {item.quantity} x {`£ ${item.price}`}
-                      </span>
-                    </div>
-                    <span className={`details__table-items total ${dark}`}>
-                      {`£ ${item.total}`}
-                    </span>
-                  </>
-                ) : (
-                  <>
-                    <span className={`details__table-items name ${dark}`}>
-                      {item.name}
-                    </span>
-                    <span className={`details__table-items quantity ${dark}`}>
-                      {item.quantity}
-                    </span>
-                    <span className={`details__table-items price ${dark}`}>
-                      {`£ ${item.price}`}
-                    </span>
-                    <span className={`details__table-items total ${dark}`}>
-                      {`£ ${item.total}`}
-                    </span>
-                  </>
-                )
-              )}
-          </div>
-        </div>
+        <Table items={items} />
         <div className={`details__table-container-total ${dark}`}>
           <span className="details__table-total-label">Amount Due</span>
           <span className="details__table-total-amount"> {`£ ${total}`}</span>
