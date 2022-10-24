@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { themeSlice } from './slices/ThemeSlice'
 import { invoceSlice } from './slices/InvoceSlice'
+import { modalSlice } from './slices/ModalSlice'
 
 export const store = configureStore({
   reducer: {
     theme: themeSlice.reducer,
     invoice: invoceSlice.reducer,
+    modal: modalSlice.reducer,
   },
 })
 

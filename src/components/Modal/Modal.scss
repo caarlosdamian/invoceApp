@@ -1,0 +1,25 @@
+.modal-container {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    left: 103px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+
+    .modal-form {
+        background: #FFFFFF;
+        border-radius:20px;
+        width: 720px;
+        height: 100vh;
+    }
+
+    .overlay {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 3;
+        cursor: pointer;
+    }
+}
