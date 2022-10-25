@@ -1,0 +1,7 @@
+@import "../../constants/index.scss";
+@import "../../constants/mixing.scss";
+
+.input-group {
+    display: flex;
+    gap: $spacing-24;
+  }
