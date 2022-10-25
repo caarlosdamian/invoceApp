@@ -1,44 +1,101 @@
-import React, { useReducer, useState } from "react";
+import React, { useReducer } from "react";
 import { TextInput } from "../";
+import { formReducer, initialState } from "../../utils";
 
 import "./Form.scss";
 
 export const Form = () => {
-  const [tsti, settsti] = useState<any>({
-    streetAddress: "",
-    name: "",
-    password: "",
-  });
+  const [state, dispatch] = useReducer(formReducer, initialState);
 
-  const initialState = { streetAddress: "" };
-
-  const reducer = (state: any, action: any) => {
-    switch (action.payload.type) {
-      case "INPUT":
-        return {
-          ...state,
-          [action.payload.event.target.name]: action.payload.event.target.value,
-        };
-        break;
-
-      default:
-        return state;
-    }
-  };
-
-  const [state, dispatch] = useReducer(reducer, initialState);
-  console.log(state);
   return (
-    <div>
-      <TextInput
-        label="Street Address"
-        placeholder=""
-        name="streetAddress"
-        onChange={(e: any) =>
-          dispatch({ payload: { type: "INPUT", event: e } })
-        }
-        value={undefined}
-      />
+    <div className="form-container">
+      <h1 className="form-header">New Invoce</h1>
+      <div className="address-container">
+        <h2 className="address-header">Bill From</h2>
+
+        <TextInput
+          label="Street Address"
+          placeholder=""
+          name="street"
+          onChange={(e: any) =>
+            dispatch({ payload: { type: "INPUT-SENDER", event: e } })
+          }
+          value={state.senderAddress.street}
+        />
+
+        <div className="input-group">
+          <TextInput
+            label="City"
+            placeholder=""
+            name="city"
+            onChange={(e: any) =>
+              dispatch({ payload: { type: "INPUT-SENDER", event: e } })
+            }
+            value={state.senderAddress.city}
+          />
+          <TextInput
+            label="Post Code"
+            placeholder=""
+            name="postCode"
+            onChange={(e: any) =>
+              dispatch({ payload: { type: "INPUT-SENDER", event: e } })
+            }
+            value={state.senderAddress.postCode}
+          />
+          <TextInput
+            label="Country"
+            placeholder=""
+            name="country"
+            onChange={(e: any) =>
+              dispatch({ payload: { type: "INPUT-SENDER", event: e } })
+            }
+            value={state.senderAddress.country}
+          />
+        </div>
+      </div>
+      <div className="address-container">
+        <h2 className="address-header">Bill To</h2>
+
+        <TextInput
+          label="Street Address"
+          placeholder=""
+          name="street"
+          onChange={(e: any) =>
+            dispatch({ payload: { type: "INPUT-CLIENT", event: e } })
+          }
+          value={state.clientAddress.street}
+        />
+
+        <div className="input-group">
+          <TextInput
+            label="City"
+            placeholder=""
+            name="city"
+            onChange={(e: any) =>
+              dispatch({ payload: { type: "INPUT-CLIENT", event: e } })
+            }
+            value={state.clientAddress.city}
+          />
+          <TextInput
+            label="Post Code"
+            placeholder=""
+            name="postCode"
+            onChange={(e: any) =>
+              dispatch({ payload: { type: "INPUT-CLIENT", event: e } })
+            }
+            value={state.clientAddress.postCode}
+          />
+          <TextInput
+            label="Country"
+            placeholder=""
+            name="country"
+            onChange={(e: any) =>
+              dispatch({ payload: { type: "INPUT-CLIENT", event: e } })
+            }
+            value={state.clientAddress.country}
+          />
+        </div>
+      </div>
     </div>
   );
 };

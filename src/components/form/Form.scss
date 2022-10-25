@@ -1,7 +1,33 @@
 @import "../../constants/index.scss";
 @import "../../constants/mixing.scss";
 
-.input-group {
-    display: flex;
-    gap: $spacing-24;
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-32;
+  .form-header {
+    font-weight: $font-weight-700;
+    font-size: $font-size-24;
+    line-height: $line-height-32;
+    letter-spacing: -0.5px;
+    color: $chinese-black;
   }
+  .address-container {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-24;
+    .address-header {
+      font-weight: $font-weight-700;
+      font-size: $font-size-12;
+      line-height: $line-height-15;
+      letter-spacing: $letter-spacing-25;
+      color: $purple;
+    }
+    .input-group {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      gap: $spacing-24;
+    }
+  }
+}
