@@ -1,25 +1,43 @@
+@import "../../constants/index.scss";
+@import "../../constants/mixing.scss";
+
 .modal-container {
-    position: absolute;
-    height: 100vh;
-    width: 100vw;
-    left: 103px;
-    display: flex;
-    align-items: center;
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  left: 103px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  z-index: 2;
+  &.confirmation {
     justify-content: center;
-    z-index: 2;
+    align-items: center;
+  }
 
-    .modal-form {
-        background: #FFFFFF;
-        border-radius:20px;
-        width: 720px;
-        height: 100vh;
+  .modal-form {
+    background: #ffffff;
+    border-radius: 0 $spacing-20 $spacing-20 0;
+    width: 720px;
+    height: 100vh;
+    padding: 56px;
+    z-index: 9999;
+    box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.100397);
+    &.confirmation {
+      background: #ffffff;
+     
+      border-radius: $border-radius-8;
+      width: 480px;
+      height: 250px;
     }
+  }
 
-    .overlay {
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 3;
-        cursor: pointer;
-    }
+  .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 3;
+    cursor: pointer;
+  }
 }
