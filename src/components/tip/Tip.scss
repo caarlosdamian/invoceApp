@@ -1,14 +1,14 @@
 @import "../../constants/index.scss";
 
 .tip__container {
-  padding: 12px 30px;
+  padding: 12px 18px;
   mix-blend-mode: normal;
   border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  max-width: 104px;
+  width: 104px;
   max-height: 40px;
   &.pending {
     background: $orange-light;
@@ -34,7 +34,6 @@
   }
   .tip__circle {
     position: relative;
-    z-index: 5;
     width: 0.5rem;
     height: 0.5rem;
     border-radius: 50%;
