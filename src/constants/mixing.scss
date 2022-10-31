@@ -72,4 +72,8 @@
   line-height: $line-height-15;
   letter-spacing: $letter-spacing-25;
   color: $ube;
+
+  &.dark {
+    color: $lavander;
+  }
 }

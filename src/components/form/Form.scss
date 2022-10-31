@@ -7,12 +7,20 @@
   gap: $spacing-32;
   height: 100%;
 
+  &.dark {
+    background: $eerie-black;
+  }
+
   .form-header {
     font-weight: $font-weight-700;
     font-size: $font-size-24;
     line-height: $line-height-32;
     letter-spacing: -0.5px;
     color: $chinese-black;
+
+    &.dark{
+      color: $white;
+    }
   }
   .address-container {
     display: flex;

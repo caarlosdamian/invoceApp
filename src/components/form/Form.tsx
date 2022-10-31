@@ -1,4 +1,5 @@
 import React, { useReducer } from "react";
+import { useSelector } from "react-redux";
 import { TextInput } from "../";
 import { formReducer, initialState } from "../../utils";
 import { DatePicker } from "../datepicker/DatePicker";
@@ -7,12 +8,13 @@ import "./Form.scss";
 
 export const Form = () => {
   const [state, dispatch] = useReducer(formReducer, initialState);
+  const { dark } = useSelector((state: any) => state.theme);
 
   return (
-    <div className="form-container">
-      <h1 className="form-header">New Invoce</h1>
+    <div className={`form-container ${dark}`}>
+      <h1 className={`form-header ${dark}`}>New Invoce</h1>
       <div className="address-container">
-        <h2 className="address-header">Bill From</h2>
+        <h2 className={`address-header ${dark}`}>Bill From</h2>
 
         <TextInput
           label="Street Address"
@@ -55,7 +57,7 @@ export const Form = () => {
         </div>
       </div>
       <div className="address-container">
-        <h2 className="address-header">Bill To</h2>
+        <h2 className={`address-header ${dark}`}>Bill To</h2>
 
         <TextInput
           label="Street Address"
@@ -98,8 +100,8 @@ export const Form = () => {
         </div>
       </div>
       <div className="pickers-container">
-      <h2 className="picker-label">Invoice Date</h2>
-        <DatePicker dispatch={dispatch}/>
+        <h2 className="picker-label">Invoice Date</h2>
+        <DatePicker dispatch={dispatch} />
       </div>
     </div>
   );

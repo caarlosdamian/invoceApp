@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import "./TextInput.scss";
 
 interface TextInputProps {
@@ -12,10 +13,12 @@ interface TextInputProps {
 }
 
 export const TextInput = ({ ...props }: TextInputProps) => {
+  const { dark } = useSelector((state: any) => state.theme);
+
   return (
-    <label className="input-label">
+    <label className={`input-label ${dark}`}>
       {props.label}
-      <input className="input-text" type="text" {...props} />
+      <input className={`input-text ${dark}`} type="text" {...props} />
     </label>
   );
 };

@@ -25,10 +25,12 @@
     box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.100397);
     &.confirmation {
       background: #ffffff;
-     
       border-radius: $border-radius-8;
       width: 480px;
       height: 250px;
+    }
+    &.dark {
+      background: $eerie-black;
     }
   }
 
