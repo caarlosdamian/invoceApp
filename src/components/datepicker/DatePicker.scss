@@ -1,0 +1,76 @@
+.date-picker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
+
+  .selected-date {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 240px;
+    background: #ffffff;
+    border: 1px solid #dfe3fa;
+    border-radius: 4px;
+    padding: 17px 20px;
+    cursor: pointer;
+  }
+
+  .dates {
+    display: none;
+    position: absolute;
+    width: 240px;
+    height: 243px;
+    background: #ffffff;
+    box-shadow: 0px 10px 20px rgba(72, 84, 159, 0.25);
+    border-radius: 8px;
+    top: 70px;
+
+    &.active {
+      display: block;
+    }
+  }
+  .month {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 28px 24px;
+
+    .arrows {
+      color: rgba(124, 93, 250, 1);
+      cursor: pointer;
+    }
+  }
+
+  .days {
+    display: grid;
+    row-gap: 16px;
+    column-gap: 15px;
+    grid-template-columns: repeat(7, 1fr);
+    padding: 18px;
+    height: 139px;
+
+    .day {
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 15px;
+      text-align: center;
+      letter-spacing: -0.25px;
+      color: #0c0e16;
+      cursor: pointer;
+      &.selected {
+        color: rgba(124, 93, 250, 1);
+      }
+
+      &.next-month {
+        text-align: center;
+        letter-spacing: -0.25px;
+        color: #0c0e16;
+        mix-blend-mode: normal;
+        opacity: 0.08;
+      }
+    }
+  }
+}
