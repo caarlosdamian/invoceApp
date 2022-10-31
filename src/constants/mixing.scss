@@ -57,3 +57,19 @@
   gap: $spacing-12;
   width: 100%;
 }
+
+@mixin form-headers {
+  font-weight: $font-weight-700;
+  font-size: $font-size-12;
+  line-height: $line-height-15;
+  letter-spacing: $letter-spacing-25;
+  color: $purple;
+}
+
+@mixin form-labels {
+  font-weight: $font-weight-500;
+  font-size: $font-size-12;
+  line-height: $line-height-15;
+  letter-spacing: $letter-spacing-25;
+  color: $ube;
+}
