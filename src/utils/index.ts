@@ -43,8 +43,28 @@ export const formReducer = (state: any, action: any) => {
           [action.payload.event.target.name]: action.payload.event.target.value,
         },
       };
+    case "INVOICE_DATE_CHANGE":
+      return {
+        ...state,
+        createdAt: action.payload.event
+      };
 
     default:
       return state;
   }
 };
+
+export const months = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec",
+];
