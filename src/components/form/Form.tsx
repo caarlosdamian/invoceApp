@@ -1,6 +1,7 @@
 import React, { useReducer } from "react";
 import { TextInput } from "../";
 import { formReducer, initialState } from "../../utils";
+import { DatePicker } from "../datepicker/DatePicker";
 
 import "./Form.scss";
 
@@ -95,6 +96,10 @@ export const Form = () => {
             value={state.clientAddress.country}
           />
         </div>
+      </div>
+      <div className="pickers-container">
+      <h2 className="picker-label">Invoice Date</h2>
+        <DatePicker dispatch={dispatch}/>
       </div>
     </div>
   );
