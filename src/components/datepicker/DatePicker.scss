@@ -21,9 +21,21 @@
     width: 240px;
     background: $white;
     border: 1px solid $lavander;
-    border-radius: 4px;
+    border-radius: $border-radius-4;
     padding: $padding-spaicing-16 $padding-spaicing-20;
     cursor: pointer;
+
+    .selected-span {
+      font-weight: $font-weight-700;
+      font-size: $font-size-12;
+      line-height: $line-height-15;
+      letter-spacing: $letter-spacing-25;
+      color: $chinese-black;
+
+      &.dark {
+        color: $white;
+      }
+    }
 
     &.dark {
       background-color: $dark-blue;

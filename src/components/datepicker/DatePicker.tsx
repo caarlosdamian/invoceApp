@@ -58,7 +58,7 @@ export const DatePicker = ({ dispatch }: any) => {
         className={`selected-date ${dark}`}
         onClick={() => setActive(!active)}
       >
-        <span>{selectedDateValue}</span>
+        <span className={`selected-span ${dark}`}>{selectedDateValue}</span>
         <svg
           width="16"
           height="16"
