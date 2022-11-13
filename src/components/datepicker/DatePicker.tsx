@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from "react";
+import { useSelector } from "react-redux";
 import { useDatePicker } from "../../hooks/useDatePicker";
 import { months } from "../../utils";
 import "./DatePicker.scss";
@@ -7,6 +8,7 @@ export const DatePicker = ({ dispatch }: any) => {
   const { month, year, day, gotoNextMonth, gotoPrevMonth, days, daysGray } =
     useDatePicker();
   const [active, setActive] = useState(false);
+  const { dark } = useSelector((state: any) => state.theme);
 
   const [selectectDay, setSelectectDay] = useState<any>(day);
   const [selectectMonth, setSelectectMonth] = useState<any>(months[month]);
@@ -51,8 +53,11 @@ export const DatePicker = ({ dispatch }: any) => {
     [selectedDateValue]
   );
   return (
-    <div className="date-picker">
-      <div className="selected-date" onClick={() => setActive(!active)}>
+    <div className={`date-picker ${dark}`}>
+      <div
+        className={`selected-date ${dark}`}
+        onClick={() => setActive(!active)}
+      >
         <span>{selectedDateValue}</span>
         <svg
           width="16"
@@ -69,8 +74,8 @@ export const DatePicker = ({ dispatch }: any) => {
           />
         </svg>
       </div>
-      <div className={`dates ${active && "active"}`}>
-        <div className="month">
+      <div className={`dates ${dark} ${active && "active"}`}>
+        <div className={`month ${dark}`}>
           <div onClick={gotoPrevMonth} className="arrows prev-mont">
             &lt;
           </div>
@@ -79,11 +84,11 @@ export const DatePicker = ({ dispatch }: any) => {
             &gt;
           </div>
         </div>
-        <div className="days">
+        <div className={`days ${dark}`}>
           {days?.map((item: any) => (
             <span
               key={item}
-              className={`day ${
+              className={`day ${dark} ${
                 selectedElement === `${item}${months[month]}` && "selected"
               }`}
               onClick={() => selectedDate(item)}
@@ -94,7 +99,7 @@ export const DatePicker = ({ dispatch }: any) => {
           {daysGray?.map((item: any) => (
             <span
               key={`${item}a`}
-              className={`day next-month`}
+              className={`day next-month ${dark}`}
               onClick={() => selectedDate(item, true)}
             >
               {item}
