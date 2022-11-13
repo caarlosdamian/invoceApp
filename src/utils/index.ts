@@ -46,7 +46,13 @@ export const formReducer = (state: any, action: any) => {
     case "INVOICE_DATE_CHANGE":
       return {
         ...state,
-        createdAt: action.payload.event
+        createdAt: action.payload.event,
+      };
+
+    case "INVOICE_PAYMENT_TERM":
+      return {
+        ...state,
+        paymentTerms: action.payload.event,
       };
 
     default:
