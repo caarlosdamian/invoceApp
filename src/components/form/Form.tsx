@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { TextInput } from "../";
 import { formReducer, initialState } from "../../utils";
 import { DatePicker } from "../datepicker/DatePicker";
+import { Select } from "../select/Select";
 
 import "./Form.scss";
 
@@ -99,9 +100,15 @@ export const Form = () => {
           />
         </div>
       </div>
-      <div className="pickers-container">
-        <h2 className="picker-label">Invoice Date</h2>
-        <DatePicker dispatch={dispatch} />
+      <div className="pickers-wrapper">
+        <div className="pickers-container">
+          <h2 className="picker-label">Invoice Date</h2>
+          <DatePicker dispatch={dispatch} />
+        </div>
+        <div className="pickers-container">
+          <h2 className="picker-label">Payment Terms</h2>
+          <Select dispatch={dispatch} />
+        </div>
       </div>
     </div>
   );
