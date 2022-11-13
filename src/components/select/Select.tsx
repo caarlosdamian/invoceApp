@@ -11,7 +11,7 @@ export const Select = ({ dispatch }: any) => {
     <div className="select-container">
       <div className={`select-box ${dark}`} onClick={() => setActive(!active)}>
         <span className={`span-box ${dark}`}>Net 30 Days</span>
-        <img src={arrowDown} alt="arrowDown" className="img-box" />
+        <img src={arrowDown} alt="arrowDown" className={`img-box ${active && 'active'}`} />
       </div>
       <div className={`list-container ${active && "active"} ${dark}`}>
         <ul className="list-wrapper">
