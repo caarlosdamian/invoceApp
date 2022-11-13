@@ -9,17 +9,16 @@
 }
 
 .input-text {
-  max-width: 100%;
+  width: 100%;
   border: none;
   padding: $spacing-16 $spacing-20;
   background: $white;
   border: 1px solid $lavander;
   border-radius: $border-radius-4;
-  min-width: 152px;
   outline: 1px solid $lavander;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 15px;
+  font-weight: $font-weight-700;
+  font-size: $font-size-12;
+  line-height: $line-height-15;
   &:focus {
     border: 1px solid $light-purple;
   }
@@ -28,7 +27,7 @@
     background: $dark-blue;
     border: 1px solid $yankees-blue;
     outline: none;
-    letter-spacing: -0.25px;
-    color: #ffffff;
+    letter-spacing: $letter-spacing-25;
+    color: $white;
   }
 }
