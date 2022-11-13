@@ -16,6 +16,7 @@
   min-height: 100vh;
   transition: all 0.5s ease-out;
   display: flex;
+  position: relative;
   @include devices("tablet") {
     flex-direction: column;
   }

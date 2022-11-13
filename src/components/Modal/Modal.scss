@@ -19,10 +19,12 @@
     background: #ffffff;
     border-radius: 0 $spacing-20 $spacing-20 0;
     width: 615px;
-    height: 100vh;
+    height: 100%;
     padding: 56px;
     z-index: 9999;
     box-shadow: 0px 10px 10px -10px rgba(72, 84, 159, 0.100397);
+  overflow-y: scroll;
+
     &.confirmation {
       background: #ffffff;
       border-radius: $border-radius-8;
