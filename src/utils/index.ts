@@ -43,6 +43,11 @@ export const formReducer = (state: any, action: any) => {
           [action.payload.event.target.name]: action.payload.event.target.value,
         },
       };
+    case "INPUT-TEXT":
+      return {
+        ...state,
+        [action.payload.event.target.name]: action.payload.event.target.value,
+      };
     case "INVOICE_DATE_CHANGE":
       return {
         ...state,

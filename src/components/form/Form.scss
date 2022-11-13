@@ -21,14 +21,15 @@
       color: $white;
     }
   }
+  .address-header {
+    @include form-headers;
+  }
   .address-container {
     display: flex;
     flex-direction: column;
     gap: $spacing-24;
     width: 504px;
-    .address-header {
-      @include form-headers;
-    }
+  
     .input-group {
       width: 100%;
       display: flex;

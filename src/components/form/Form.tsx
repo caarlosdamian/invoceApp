@@ -57,9 +57,26 @@ export const Form = () => {
           />
         </div>
       </div>
+      <h2 className={`address-header ${dark}`}>Bill To</h2>
+      <TextInput
+        label="Client’s Name"
+        placeholder=""
+        name="clientName"
+        onChange={(e: any) =>
+          dispatch({ payload: { type: "INPUT-TEXT", event: e } })
+        }
+        value={state.clientName}
+      />
+       <TextInput
+        label="Client’s Email"
+        placeholder="e.g. email@example.com"
+        name="clientEmail"
+        onChange={(e: any) =>
+          dispatch({ payload: { type: "INPUT-TEXT", event: e } })
+        }
+        value={state.clientEmail}
+      />
       <div className="address-container">
-        <h2 className={`address-header ${dark}`}>Bill To</h2>
-
         <TextInput
           label="Street Address"
           placeholder=""
@@ -110,6 +127,15 @@ export const Form = () => {
           <Select dispatch={dispatch} />
         </div>
       </div>
+      <TextInput
+        label="Project Description"
+        placeholder="e.g. Graphic Design Service"
+        name="description"
+        onChange={(e: any) =>
+          dispatch({ payload: { type: "INPUT-TEXT", event: e } })
+        }
+        value={state.description}
+      />
     </div>
   );
 };
