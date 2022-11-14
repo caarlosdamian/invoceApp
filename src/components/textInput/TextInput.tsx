@@ -10,6 +10,8 @@ interface TextInputProps {
   name: string;
   id?: string;
   label: string;
+  onBlur?:any;
+  style?:any
 }
 
 export const TextInput = ({ ...props }: TextInputProps) => {

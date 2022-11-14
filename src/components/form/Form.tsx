@@ -9,7 +9,7 @@ import "./Form.scss";
 
 export const Form = () => {
   const [state, dispatch] = useReducer(formReducer, initialState);
-  const { dark } = useSelector((state: any) => state.theme);
+  const { dark } = useSelector((state: any) => state);
 
   return (
     <div className={`form-container ${dark}`}>
@@ -67,7 +67,7 @@ export const Form = () => {
         }
         value={state.clientName}
       />
-       <TextInput
+      <TextInput
         label="Client’s Email"
         placeholder="e.g. email@example.com"
         name="clientEmail"
@@ -136,6 +136,91 @@ export const Form = () => {
         }
         value={state.description}
       />
+      <div className="form-items-container">
+        <h2 className="form-items-header">Item List</h2>
+        <div className="form-items-wrapper">
+          <div className="form-items-grid">
+            <span id="itemName" className="form-item-title">
+              Item Name
+            </span>
+            <span id="itemQty" className="form-item-title">
+              Qty.
+            </span>
+            <span id="itemPrice" className="form-item-title">
+              Price
+            </span>
+            <span id="itemTotal" className="form-item-title">
+              Total
+            </span>
+          </div>
+          {state.items.map((item: any, i: any) => (
+            <div className="grid-item-form" key={i * 0.23}>
+              <TextInput
+                label=""
+                placeholder="Item name"
+                name="name"
+                onChange={(e: any) =>
+                  dispatch({
+                    payload: { type: "INVOICE_ADD_ITEM", event: e, index: i },
+                  })
+                }
+                value={state.items[i].name}
+              />
+              <TextInput
+                label=""
+                style={{ padding: "16px 10px" }}
+                placeholder="1"
+                name="quantity"
+                onChange={(e: any) =>
+                  dispatch({
+                    payload: { type: "INVOICE_ADD_ITEM", event: e, index: i },
+                  })
+                }
+                value={state.items[i].quantity}
+              />
+              <TextInput
+                label=""
+                onBlur={() => console.log("blur")}
+                placeholder="0.00"
+                name="price"
+                onChange={(e: any) =>
+                  dispatch({
+                    payload: { type: "INVOICE_ADD_ITEM", event: e, index: i },
+                  })
+                }
+                value={state.items[i].price}
+              />
+              <span className="itemPrice">{item.price * item.quantity}</span>
+
+              <svg
+                className="icon"
+                width="13"
+                height="16"
+                xmlns="http://www.w3.org/2000/svg"
+                onClick={(e: any) =>
+                  dispatch({
+                    payload: { type: "INVOICE_REMOVE_ITEM", index: i },
+                  })
+                }
+              >
+                <path
+                  d="M11.583 3.556v10.666c0 .982-.795 1.778-1.777 1.778H2.694a1.777 1.777 0 01-1.777-1.778V3.556h10.666zM8.473 0l.888.889h3.111v1.778H.028V.889h3.11L4.029 0h4.444z"
+                  fillRule="nonzero"
+                />
+              </svg>
+            </div>
+          ))}
+
+          <div
+            className="grid-item-button"
+            onClick={() =>
+              dispatch({ payload: { type: "INVOICE_CREATE_EMPTY_ITEM" } })
+            }
+          >
+            <span>+ Add New Item</span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
