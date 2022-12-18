@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 import { useSelector } from "react-redux";
-import { TextInput } from "../";
+import { Button, TextInput } from "../";
 import { formReducer, initialState } from "../../utils";
 import { DatePicker } from "../datepicker/DatePicker";
 import { Select } from "../select/Select";
@@ -219,6 +219,15 @@ export const Form = () => {
           >
             <span>+ Add New Item</span>
           </div>
+        </div>
+      </div>
+      <div className="form-buttons-container">
+        <div className="form-buttons-container-left">
+          <Button theme="default__light" label="Discard" size="medium" />
+        </div>
+        <div className="form-buttons-container-right">
+          <Button theme="default__black" label="Save as Draft" size="large" />
+          <Button theme="default__purple" label="Save & Send" size="large" />
         </div>
       </div>
     </div>
