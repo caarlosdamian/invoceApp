@@ -4,12 +4,12 @@ import { Button, TextInput } from "../";
 import { formReducer, initialState } from "../../utils";
 import { DatePicker } from "../datepicker/DatePicker";
 import { Select } from "../select/Select";
-
-import "./Form.scss";
+import { RootState } from '../../redux/store'
+import './Form.scss'
 
 export const Form = () => {
   const [state, dispatch] = useReducer(formReducer, initialState);
-  const { dark } = useSelector((state: any) => state);
+  const { dark } = useSelector((state: RootState) => state.theme);
 
   return (
     <div className={`form-container ${dark}`}>
@@ -212,12 +212,12 @@ export const Form = () => {
           ))}
 
           <div
-            className="grid-item-button"
+            className={`grid-item-button ${dark}`}
             onClick={() =>
               dispatch({ payload: { type: "INVOICE_CREATE_EMPTY_ITEM" } })
             }
           >
-            <span>+ Add New Item</span>
+            <span >+ Add New Item</span>
           </div>
         </div>
       </div>
