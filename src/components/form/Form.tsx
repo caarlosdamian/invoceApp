@@ -180,7 +180,10 @@ export const Form = () => {
               />
               <TextInput
                 label=""
-                onBlur={() => console.log("blur")}
+                onBlur={(e: any) =>
+                  dispatch({
+                    payload: { type: "SET_TOTAL", index: i },
+                  })}
                 placeholder="0.00"
                 name="price"
                 onChange={(e: any) =>

@@ -75,11 +75,12 @@ export const formReducer = (state: any, action: any) => {
     case "INVOICE_ADD_ITEM":
       const newarr = state.items.map((item: any, index: any) => {
         if (index === action.payload.index) {
+          console.log(item);
           return {
             ...item,
+            total: item.quantity * item.price,
             [action.payload.event.target.name]:
               action.payload.event.target.value,
-              // pendiente total 
           };
         }
         return item;
@@ -87,6 +88,21 @@ export const formReducer = (state: any, action: any) => {
       return {
         ...state,
         items: newarr,
+      };
+    case "SET_TOTAL":
+      const newSet = state.items.map((item: any, index: any) => {
+        if (index === action.payload.index) {
+
+          return {
+            ...item,
+            total: item.quantity * item.price,
+          };
+        }
+        return item;
+      });
+      return {
+        ...state,
+        items: newSet,
       };
 
     case "INVOICE_REMOVE_ITEM":
