@@ -1,14 +1,21 @@
 import { RowInfo } from "../interfaces";
 
+const getRandoId = (max: number, min: number) => {
+  const randomId = Math.random().toString(36).substring(5, 7).toUpperCase();
+  const rand = Math.floor(Math.random() * (max - min)) + min;
+
+  return `${randomId}${rand}`;
+};
+
 export const initialState: RowInfo = {
-  id: "",
+  id: `${getRandoId(1000, 9999)}`,
   createdAt: "",
   paymentDue: "",
   description: "",
   paymentTerms: 0,
   clientName: "",
   clientEmail: "",
-  status: "",
+  status: "Pending",
   senderAddress: {
     street: "",
     city: "",
@@ -55,9 +62,20 @@ export const formReducer = (state: any, action: any) => {
       };
 
     case "INVOICE_PAYMENT_TERM":
+      const date = new Date();
+      const newDate = new Date(
+        date.setDate(date.getDate() + action.payload.event)
+      );
+      let year = newDate.toLocaleString("default", { year: "numeric" });
+      let month = newDate.toLocaleString("default", { month: "2-digit" });
+      let day = newDate.toLocaleString("default", { day: "2-digit" });
+
+      // Generate yyyy-mm-dd date string
+      let formattedDate = year + "-" + month + "-" + day;
       return {
         ...state,
         paymentTerms: action.payload.event,
+        paymentDue: formattedDate,
       };
     case "INVOICE_CREATE_EMPTY_ITEM":
       let obj = {
@@ -75,7 +93,7 @@ export const formReducer = (state: any, action: any) => {
     case "INVOICE_ADD_ITEM":
       const newarr = state.items.map((item: any, index: any) => {
         if (index === action.payload.index) {
-          console.log(item);
+          
           return {
             ...item,
             total: item.quantity * item.price,
@@ -92,7 +110,6 @@ export const formReducer = (state: any, action: any) => {
     case "SET_TOTAL":
       const newSet = state.items.map((item: any, index: any) => {
         if (index === action.payload.index) {
-
           return {
             ...item,
             total: item.quantity * item.price,
