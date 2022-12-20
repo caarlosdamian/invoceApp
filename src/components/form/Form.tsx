@@ -230,7 +230,12 @@ export const Form = () => {
       </div>
       <div className="form-buttons-container">
         <div className="form-buttons-container-left">
-          <Button theme="default__light" label="Discard" size="medium" />
+          <Button
+            theme="default__light"
+            label="Discard"
+            size="medium"
+            onClick={() => reduxDispatch(toggleModal())}
+          />
         </div>
         <div className="form-buttons-container-right">
           <Button
