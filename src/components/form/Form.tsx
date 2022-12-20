@@ -5,7 +5,8 @@ import { formReducer, initialState } from "../../utils";
 import { DatePicker } from "../datepicker/DatePicker";
 import { Select } from "../select/Select";
 import { RootState } from "../../redux/store";
-import { addInvoce } from "../../redux/slices/InvoceSlice";
+import { addInvoce, addInvoceDraft } from "../../redux/slices/InvoceSlice";
+import { toggleModal } from "../../redux/slices/ModalSlice";
 import "./Form.scss";
 
 export const Form = () => {
@@ -232,12 +233,23 @@ export const Form = () => {
           <Button theme="default__light" label="Discard" size="medium" />
         </div>
         <div className="form-buttons-container-right">
-          <Button theme="default__black" label="Save as Draft" size="large" />
+          <Button
+            theme="default__black"
+            label="Save as Draft"
+            size="large"
+            onClick={() => {
+              reduxDispatch(addInvoceDraft(state));
+              reduxDispatch(toggleModal());
+            }}
+          />
           <Button
             theme="default__purple"
             label="Save & Send"
             size="large"
-            onClick={() => reduxDispatch(addInvoce(state))}
+            onClick={() => {
+              reduxDispatch(addInvoce(state));
+              reduxDispatch(toggleModal());
+            }}
           />
         </div>
       </div>

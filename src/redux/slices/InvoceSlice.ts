@@ -1,5 +1,6 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
 import { RowInfo } from "../../interfaces";
+import { getRandoId } from "../../utils";
 import invoces from "../../utils/data.json";
 
 interface InvoiceState {
@@ -33,14 +34,29 @@ export const invoceSlice = createSlice({
       state.showFilter = !state.showFilter;
     },
     addInvoce: (state, action) => {
-      state.invoces.push(action.payload);
+      const newInvoce = { ...action.payload, id: getRandoId(1000, 9999) };
+      state.invoces.push(newInvoce);
+    },
+    addInvoceDraft: (state, action) => {
+      const newDraft = {
+        ...action.payload,
+        status: "draft",
+        id: getRandoId(1000, 9999),
+      };
+
+      state.invoces.push(newDraft);
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { filterByStatus, removeFilter, showFilterToggle, addInvoce } =
-  invoceSlice.actions;
+export const {
+  filterByStatus,
+  removeFilter,
+  showFilterToggle,
+  addInvoce,
+  addInvoceDraft,
+} = invoceSlice.actions;
 
 export default invoceSlice.reducer;
 

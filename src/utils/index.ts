@@ -1,6 +1,6 @@
 import { RowInfo } from "../interfaces";
 
-const getRandoId = (max: number, min: number) => {
+export const getRandoId = (max: number, min: number) => {
   const randomId = Math.random().toString(36).substring(5, 7).toUpperCase();
   const rand = Math.floor(Math.random() * (max - min)) + min;
 
@@ -8,7 +8,7 @@ const getRandoId = (max: number, min: number) => {
 };
 
 export const initialState: RowInfo = {
-  id: `${getRandoId(1000, 9999)}`,
+  id: "",
   createdAt: "",
   paymentDue: "",
   description: "",
@@ -117,11 +117,14 @@ export const formReducer = (state: any, action: any) => {
         return item;
       });
 
-      const totalCount = newSet.reduce((acc:any,item:any)=> acc + item.total,0);
-      
+      const totalCount = newSet.reduce(
+        (acc: any, item: any) => acc + item.total,
+        0
+      );
+
       return {
         ...state,
-        total:totalCount,
+        total: totalCount,
         items: newSet,
       };
 
