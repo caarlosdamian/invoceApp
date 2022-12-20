@@ -7,11 +7,15 @@ interface InvoiceState {
   invoces: any;
   selectedFilter: string[];
   showFilter: boolean;
+  editInvoce: any;
+  isEdit: boolean;
 }
 const initialState: InvoiceState = {
   invoces,
   selectedFilter: [],
   showFilter: false,
+  editInvoce: {},
+  isEdit: false,
 };
 export const invoceSlice = createSlice({
   name: "invoice",
@@ -43,8 +47,21 @@ export const invoceSlice = createSlice({
         status: "draft",
         id: getRandoId(1000, 9999),
       };
-
       state.invoces.push(newDraft);
+    },
+    setEditInvoce: (state, action) => {
+      state.editInvoce = action.payload;
+      state.isEdit = true;
+    },
+    editInvoceAction: (state, action) => {
+      const invoceId = action.payload.id;
+      let indexEdit = 0;
+      invoces.forEach((element, inde) => {
+        if (element.id === invoceId) {
+          indexEdit = inde;
+        }
+      });
+      state.invoces[indexEdit] = action.payload;
     },
   },
 });
@@ -56,6 +73,8 @@ export const {
   showFilterToggle,
   addInvoce,
   addInvoceDraft,
+  setEditInvoce,
+  editInvoceAction,
 } = invoceSlice.actions;
 
 export default invoceSlice.reducer;

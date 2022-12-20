@@ -1,18 +1,31 @@
-import React, { useReducer } from "react";
+import React, { useEffect, useReducer } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, TextInput } from "../";
 import { formReducer, initialState } from "../../utils";
 import { DatePicker } from "../datepicker/DatePicker";
 import { Select } from "../select/Select";
 import { RootState } from "../../redux/store";
-import { addInvoce, addInvoceDraft } from "../../redux/slices/InvoceSlice";
+import {
+  addInvoce,
+  addInvoceDraft,
+  editInvoceAction,
+} from "../../redux/slices/InvoceSlice";
 import { toggleModal } from "../../redux/slices/ModalSlice";
 import "./Form.scss";
+import { useNavigate } from "react-router-dom";
 
 export const Form = () => {
   const [state, dispatch] = useReducer(formReducer, initialState);
-  const { dark } = useSelector((state: RootState) => state.theme);
+  const navigate = useNavigate();
+  const {
+    theme: { dark },
+    invoice: { editInvoce, isEdit },
+  } = useSelector((state: RootState) => state);
   const reduxDispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch({ payload: { type: "IS-EDIT-INVOCE", invoce: editInvoce } });
+  }, [editInvoce]);
 
   return (
     <div className={`form-container ${dark}`}>
@@ -252,7 +265,10 @@ export const Form = () => {
             label="Save & Send"
             size="large"
             onClick={() => {
-              reduxDispatch(addInvoce(state));
+              reduxDispatch(
+                isEdit ? editInvoceAction(state) : addInvoce(state)
+              );
+              navigate("/");
               reduxDispatch(toggleModal());
             }}
           />

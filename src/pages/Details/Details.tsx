@@ -1,10 +1,12 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import { Button, Table, Tip } from "../../components";
 import { useCapitalize, useFormatDate, useWindowSize } from "../../hooks/index";
 import arrow_down from "../../assets/icon-arrow-down.svg";
+import { setEditInvoce } from "../../redux/slices/InvoceSlice";
 
 import "./Details.scss";
+import { toggleModal } from "../../redux/slices/ModalSlice";
 
 export const Details = () => {
   const { state } = useLocation();
@@ -20,7 +22,10 @@ export const Details = () => {
     items,
     total,
   } = state.data;
-  const { dark } = useSelector((state: any) => state.theme);
+  const {
+    theme: { dark },
+  } = useSelector((state: any) => state);
+  const dispatch = useDispatch();
   const { data } = state;
   const { status } = data;
   const { width } = useWindowSize();
@@ -44,7 +49,15 @@ export const Details = () => {
 
         {width >= 600 && (
           <div className="details__container-middle-right">
-            <Button size="medium" theme="default__light" label="Edit" />
+            <Button
+              size="medium"
+              theme="default__light"
+              label="Edit"
+              onClick={() => {
+                dispatch(setEditInvoce(data));
+                dispatch(toggleModal());
+              }}
+            />
             <Button size="medium" theme="default__red" label="Delete" />
             <Button
               size="medium"
@@ -141,7 +154,15 @@ export const Details = () => {
       {width <= 450 && (
         <div className={`details__container-middle ${dark}`}>
           <div className="details__container-middle-right">
-            <Button size="small" theme="default__light" label="Edit" />
+            <Button
+              size="small"
+              theme="default__light"
+              label="Edit"
+              onClick={() => {
+                dispatch(setEditInvoce(data));
+                dispatch(toggleModal());
+              }}
+            />
             <Button size="small" theme="default__red" label="Delete" />
             <Button size="small" theme="default__purple" label="Mark as Paid" />
           </div>

@@ -34,6 +34,8 @@ export const initialState: RowInfo = {
 
 export const formReducer = (state: any, action: any) => {
   switch (action.payload.type) {
+    case "IS-EDIT-INVOCE":
+      return (state = action.payload.invoce);
     case "INPUT-CLIENT":
       return {
         ...state,
