@@ -56,6 +56,15 @@ export const invoceSlice = createSlice({
       state.editInvoce = action.payload;
       state.isEdit = true;
     },
+    markAsPaid: (state, action) => {
+      state.invoces = invoces.map((item) => {
+        if (item.id === action.payload) {
+          return { ...item, status: "paid" };
+        } else {
+          return item;
+        }
+      });
+    },
     editInvoceAction: (state, action) => {
       const invoceId = action.payload.id;
       let indexEdit = 0;
@@ -79,6 +88,7 @@ export const {
   setEditInvoce,
   editInvoceAction,
   deleteInvoce,
+  markAsPaid,
 } = invoceSlice.actions;
 
 export default invoceSlice.reducer;

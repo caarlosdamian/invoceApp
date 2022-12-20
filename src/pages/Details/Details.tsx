@@ -3,7 +3,11 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button, Table, Tip } from "../../components";
 import { useCapitalize, useFormatDate, useWindowSize } from "../../hooks/index";
 import arrow_down from "../../assets/icon-arrow-down.svg";
-import { deleteInvoce, setEditInvoce } from "../../redux/slices/InvoceSlice";
+import {
+  deleteInvoce,
+  markAsPaid,
+  setEditInvoce,
+} from "../../redux/slices/InvoceSlice";
 
 import "./Details.scss";
 import { toggleModal } from "../../redux/slices/ModalSlice";
@@ -72,6 +76,10 @@ export const Details = () => {
               size="medium"
               theme={`default__purple ${status === "paid" ? "disable" : ""}`}
               label="Mark as Paid"
+              onClick={() => {
+                navigate("/");
+                dispatch(markAsPaid(data.id));
+              }}
             />
           </div>
         )}
