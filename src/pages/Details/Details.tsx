@@ -1,15 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Button, Table, Tip } from "../../components";
 import { useCapitalize, useFormatDate, useWindowSize } from "../../hooks/index";
 import arrow_down from "../../assets/icon-arrow-down.svg";
-import { setEditInvoce } from "../../redux/slices/InvoceSlice";
+import { deleteInvoce, setEditInvoce } from "../../redux/slices/InvoceSlice";
 
 import "./Details.scss";
 import { toggleModal } from "../../redux/slices/ModalSlice";
 
 export const Details = () => {
   const { state } = useLocation();
+  const navigate = useNavigate();
   const {
     paymentDue,
     clientName,
@@ -58,10 +59,18 @@ export const Details = () => {
                 dispatch(toggleModal());
               }}
             />
-            <Button size="medium" theme="default__red" label="Delete" />
             <Button
               size="medium"
-              theme="default__purple"
+              theme="default__red"
+              label="Delete"
+              onClick={() => {
+                navigate("/");
+                dispatch(deleteInvoce(data.id));
+              }}
+            />
+            <Button
+              size="medium"
+              theme={`default__purple ${status === "paid" ? "disable" : ""}`}
               label="Mark as Paid"
             />
           </div>

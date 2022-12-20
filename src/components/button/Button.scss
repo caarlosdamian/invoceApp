@@ -26,6 +26,10 @@
     &.large {
       width: 138px;
     }
+    &.disable{
+      opacity: .5;
+      cursor: not-allowed;
+    }
   }
 
   &.default__light {

@@ -49,6 +49,9 @@ export const invoceSlice = createSlice({
       };
       state.invoces.push(newDraft);
     },
+    deleteInvoce: (state, action) => {
+      state.invoces = invoces.filter((item) => item.id !== action.payload);
+    },
     setEditInvoce: (state, action) => {
       state.editInvoce = action.payload;
       state.isEdit = true;
@@ -75,6 +78,7 @@ export const {
   addInvoceDraft,
   setEditInvoce,
   editInvoceAction,
+  deleteInvoce,
 } = invoceSlice.actions;
 
 export default invoceSlice.reducer;
