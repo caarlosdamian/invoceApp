@@ -32,11 +32,15 @@ export const invoceSlice = createSlice({
     showFilterToggle: (state) => {
       state.showFilter = !state.showFilter;
     },
+    addInvoce: (state, action) => {
+      state.invoces.push(action.payload);
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { filterByStatus, removeFilter, showFilterToggle } = invoceSlice.actions;
+export const { filterByStatus, removeFilter, showFilterToggle, addInvoce } =
+  invoceSlice.actions;
 
 export default invoceSlice.reducer;
 

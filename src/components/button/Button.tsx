@@ -12,11 +12,11 @@ interface ButtonProps {
   children?: React.ReactNode;
 }
 
-export const Button = ({ label, theme, size, icon, children }: ButtonProps) => {
+export const Button = ({ label, theme, size, icon, children , onClick }: ButtonProps) => {
   const { dark } = useSelector((state: any) => state.theme);
 
   return (
-    <button className={`button__container ${theme} ${size} ${dark}`}>
+    <button onClick={onClick} className={`button__container ${theme} ${size} ${dark}`}>
       {icon ? children : label}
     </button>
   );

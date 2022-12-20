@@ -1,15 +1,17 @@
 import React, { useReducer } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Button, TextInput } from "../";
 import { formReducer, initialState } from "../../utils";
 import { DatePicker } from "../datepicker/DatePicker";
 import { Select } from "../select/Select";
-import { RootState } from '../../redux/store'
-import './Form.scss'
+import { RootState } from "../../redux/store";
+import { addInvoce } from "../../redux/slices/InvoceSlice";
+import "./Form.scss";
 
 export const Form = () => {
   const [state, dispatch] = useReducer(formReducer, initialState);
   const { dark } = useSelector((state: RootState) => state.theme);
+  const reduxDispatch = useDispatch();
 
   return (
     <div className={`form-container ${dark}`}>
@@ -183,7 +185,8 @@ export const Form = () => {
                 onBlur={(e: any) =>
                   dispatch({
                     payload: { type: "SET_TOTAL", index: i },
-                  })}
+                  })
+                }
                 placeholder="0.00"
                 name="price"
                 onChange={(e: any) =>
@@ -220,7 +223,7 @@ export const Form = () => {
               dispatch({ payload: { type: "INVOICE_CREATE_EMPTY_ITEM" } })
             }
           >
-            <span >+ Add New Item</span>
+            <span>+ Add New Item</span>
           </div>
         </div>
       </div>
@@ -230,7 +233,12 @@ export const Form = () => {
         </div>
         <div className="form-buttons-container-right">
           <Button theme="default__black" label="Save as Draft" size="large" />
-          <Button theme="default__purple" label="Save & Send" size="large" />
+          <Button
+            theme="default__purple"
+            label="Save & Send"
+            size="large"
+            onClick={() => reduxDispatch(addInvoce(state))}
+          />
         </div>
       </div>
     </div>

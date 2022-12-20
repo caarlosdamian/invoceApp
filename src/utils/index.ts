@@ -15,7 +15,7 @@ export const initialState: RowInfo = {
   paymentTerms: 0,
   clientName: "",
   clientEmail: "",
-  status: "Pending",
+  status: "pending",
   senderAddress: {
     street: "",
     city: "",
@@ -93,7 +93,6 @@ export const formReducer = (state: any, action: any) => {
     case "INVOICE_ADD_ITEM":
       const newarr = state.items.map((item: any, index: any) => {
         if (index === action.payload.index) {
-          
           return {
             ...item,
             total: item.quantity * item.price,
@@ -117,8 +116,12 @@ export const formReducer = (state: any, action: any) => {
         }
         return item;
       });
+
+      const totalCount = newSet.reduce((acc:any,item:any)=> acc + item.total,0);
+      
       return {
         ...state,
+        total:totalCount,
         items: newSet,
       };
 
