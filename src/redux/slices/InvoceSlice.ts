@@ -50,14 +50,14 @@ export const invoceSlice = createSlice({
       state.invoces.push(newDraft);
     },
     deleteInvoce: (state, action) => {
-      state.invoces = invoces.filter((item) => item.id !== action.payload);
+      state.invoces = state.invoces.filter((item:any) => item.id !== action.payload);
     },
     setEditInvoce: (state, action) => {
       state.editInvoce = action.payload;
       state.isEdit = true;
     },
     markAsPaid: (state, action) => {
-      state.invoces = invoces.map((item) => {
+      state.invoces = state.invoces.map((item:any) => {
         if (item.id === action.payload) {
           return { ...item, status: "paid" };
         } else {
@@ -68,7 +68,7 @@ export const invoceSlice = createSlice({
     editInvoceAction: (state, action) => {
       const invoceId = action.payload.id;
       let indexEdit = 0;
-      invoces.forEach((element, inde) => {
+      state.invoces.forEach((element:any, inde:any) => {
         if (element.id === invoceId) {
           indexEdit = inde;
         }
