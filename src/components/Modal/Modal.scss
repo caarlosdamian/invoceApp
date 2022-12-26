@@ -34,7 +34,15 @@
     &.dark {
       background: $eerie-black;
     }
+    &.modal-mobile-form{
+      left: 0;
+      top: 0;
+      position: fixed;
+    }
   }
+
+
+  
 
   .overlay {
     position: absolute;

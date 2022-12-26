@@ -65,7 +65,9 @@ export const Invoces = () => {
     <div
      className="invoces__container--top--right"
      onClick={() => {
-      dispatch(changeType('form'));
+      width <= 500 ? dispatch(changeType('form-mobile')) : dispatch(changeType('form'));
+     
+
       dispatch(toggleModal());
      }}
     >

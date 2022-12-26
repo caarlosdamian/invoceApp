@@ -28,7 +28,7 @@ const App = () => {
       ) : (
         show &&
         type === "form-mobile" && (
-          <Modal>
+          <Modal type="modal-mobile-form">
             <FormMobile />
           </Modal>
         )

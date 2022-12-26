@@ -1,0 +1,96 @@
+@import "../../constants/index.scss";
+@import "../../constants/mixing.scss";
+
+.form-mobile {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 24px;
+  .details__container-top-mobile {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    text-decoration: none;
+    .arrow-left-mobile {
+      transform: rotate(90deg);
+    }
+    .details__container-top-label-mobile {
+      text-decoration: none;
+    }
+  }
+  .input-group-mobile {
+    display: grid;
+    grid-template-columns: repeat(2, 152px);
+    gap: 24px;
+    .input-text {
+      width: 152px;
+    }
+  }
+
+  .pickers-wrapper {
+    flex-direction: column;
+  }
+
+  .grid-item-form-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    .item-mobile-grid {
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      grid-template-columns: repeat(6, 64px);
+      gap: 16px;
+    }
+    .icon-mobile {
+      margin-top: 20px;
+    }
+    #testing {
+      border: none;
+      outline: none;
+    }
+  }
+
+  .grid-item-button-mobile {
+    margin-bottom: 50px;
+    cursor: pointer;
+    background: #f9fafe;
+    border-radius: $border-radius-24;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 327px;
+    height: $spacing-48;
+
+    &.dark {
+      background: $yankees-blue;
+    }
+
+    span {
+      font-weight: $font-weight-700;
+      font-size: $font-size-12;
+      line-height: $line-height-15;
+      text-align: center;
+      letter-spacing: $letter-spacing-25;
+      color: $ube;
+    }
+  }
+
+  .form-buttons-container-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 139px;
+    padding-bottom: $padding-spaicing-32;
+    max-width: 375px;
+
+    .form-buttons-container-left {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: $spacing-8;
+      width: 100%;
+    }
+  }
+}

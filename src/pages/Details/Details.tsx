@@ -4,7 +4,7 @@ import { Button, Table, Tip } from "../../components";
 import { useCapitalize, useFormatDate, useWindowSize } from "../../hooks/index";
 import arrow_down from "../../assets/icon-arrow-down.svg";
 import {
-  deleteInvoce,
+  // deleteInvoce,
   markAsPaid,
   setEditInvoce,
 } from "../../redux/slices/InvoceSlice";

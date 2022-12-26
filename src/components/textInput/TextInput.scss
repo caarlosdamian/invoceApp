@@ -30,4 +30,8 @@
     letter-spacing: $letter-spacing-25;
     color: $white;
   }
+
+  @include devices("mobile") {
+    max-width: 327px;
+  }
 }
