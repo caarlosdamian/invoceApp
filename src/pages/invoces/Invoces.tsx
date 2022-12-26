@@ -11,7 +11,7 @@ import {
  selectPostsByUser,
  showFilterToggle,
 } from "../../redux/slices/InvoceSlice";
-import { toggleModal } from "../../redux/slices/ModalSlice";
+import { changeType, toggleModal } from "../../redux/slices/ModalSlice";
 
 import "./Invoces.scss";
 
@@ -64,7 +64,10 @@ export const Invoces = () => {
     </div>
     <div
      className="invoces__container--top--right"
-     onClick={() => dispatch(toggleModal())}
+     onClick={() => {
+      dispatch(changeType('form'));
+      dispatch(toggleModal());
+     }}
     >
      <div className="invoce__container--top--right--img--container">
       <img
@@ -74,7 +77,7 @@ export const Invoces = () => {
       />
      </div>
      <button className="invoces__container--top--button">
-      {width <= 430 ? "New" : "New Invoice"}
+      {width <= 480 ? "New" : "New Invoice"}
      </button>
     </div>
    </div>
