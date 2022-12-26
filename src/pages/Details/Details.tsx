@@ -69,6 +69,7 @@ export const Details = () => {
               theme="default__red"
               label="Delete"
               onClick={() => {
+                dispatch(setEditInvoce(data));
                 dispatch(changeType("delete"));
                 dispatch(toggleModal());
               }}

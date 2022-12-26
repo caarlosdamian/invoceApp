@@ -1,0 +1,29 @@
+.modal-delete-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+
+  .modal-delete-header {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: -0.5px;
+    color: #0c0e16;
+  }
+
+  .modal-delete-header-subtitle {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 22px;
+    letter-spacing: -0.25px;
+    color: #888eb0;
+  }
+  .modal-delete-button-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 100%;
+  }
+}

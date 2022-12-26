@@ -22,7 +22,7 @@ const App = () => {
           <Form />
         </Modal>
       ) : show && type === "delete" ? (
-        <Modal>
+        <Modal type='confirmation'>
           <FormDelete />
         </Modal>
       ) : (
