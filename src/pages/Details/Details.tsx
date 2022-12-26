@@ -10,7 +10,7 @@ import {
 } from "../../redux/slices/InvoceSlice";
 
 import "./Details.scss";
-import { toggleModal } from "../../redux/slices/ModalSlice";
+import { changeType, toggleModal } from "../../redux/slices/ModalSlice";
 
 export const Details = () => {
   const { state } = useLocation();
@@ -60,6 +60,7 @@ export const Details = () => {
               label="Edit"
               onClick={() => {
                 dispatch(setEditInvoce(data));
+                dispatch(changeType("form"));
                 dispatch(toggleModal());
               }}
             />
@@ -68,8 +69,8 @@ export const Details = () => {
               theme="default__red"
               label="Delete"
               onClick={() => {
-                navigate("/");
-                dispatch(deleteInvoce(data.id));
+                dispatch(changeType("delete"));
+                dispatch(toggleModal());
               }}
             />
             <Button
@@ -177,6 +178,7 @@ export const Details = () => {
               label="Edit"
               onClick={() => {
                 dispatch(setEditInvoce(data));
+                dispatch(changeType('form-mobile'));
                 dispatch(toggleModal());
               }}
             />
