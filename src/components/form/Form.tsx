@@ -24,11 +24,10 @@ export const Form = () => {
   const reduxDispatch = useDispatch();
 
   useEffect(() => {
-    if(isEdit){
+    if (isEdit) {
       dispatch({ payload: { type: "IS-EDIT-INVOCE", invoce: editInvoce } });
-
     }
-  }, [editInvoce,isEdit]);
+  }, [editInvoce, isEdit]);
 
   return (
     <div className={`form-container ${dark}`}>
