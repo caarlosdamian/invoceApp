@@ -9,12 +9,13 @@ import "./FormDelete.scss";
 
 export const FormDelete = () => {
   const { editInvoce } = useSelector((state: RootState) => state.invoice);
+  const { dark } = useSelector((state: RootState) => state.theme);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { id } = editInvoce;
   return (
     <div className="modal-delete-container">
-      <h1 className="modal-delete-header">Confirm Deletion</h1>
+      <h1 className={`modal-delete-header ${dark}`}>Confirm Deletion</h1>
       <span className="modal-delete-header-subtitle">
         Are you sure you want to delete invoice #{id}? This action cannot be
         undone.
