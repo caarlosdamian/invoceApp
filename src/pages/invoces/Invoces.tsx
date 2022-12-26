@@ -43,7 +43,7 @@ export const Invoces = () => {
     <div className="invoces__container--top--left">
      <h1 className={`invoces__container--top--header ${dark}`}>Invoices</h1>
      <span className={`invoces__container--top--subtitle ${dark}`}>
-      {width <= 430
+      {width <= 500
        ? `${invoceLength} Invoices`
        : `There are ${invoceLength} pending invoices`}
      </span>
@@ -53,7 +53,7 @@ export const Invoces = () => {
       className={`invoces__container--middle-text ${dark}`}
       onClick={() => dispatch(showFilterToggle())}
      >
-      {width <= 430 ? "Filter" : "Filter by status"}
+      {width <= 500 ? "Filter" : "Filter by status"}
      </span>
      <img
       onClick={() => dispatch(showFilterToggle())}
@@ -77,7 +77,7 @@ export const Invoces = () => {
       />
      </div>
      <button className="invoces__container--top--button">
-      {width <= 480 ? "New" : "New Invoice"}
+      {width <= 500 ? "New" : "New Invoice"}
      </button>
     </div>
    </div>

@@ -169,7 +169,7 @@ export const Details = () => {
         </div>
       </div>
 
-      {width <= 450 && (
+      {width <= 500 && (
         <div className={`details__container-middle ${dark}`}>
           <div className="details__container-middle-right">
             <Button
